@@ -1,0 +1,126 @@
+---
+import PageHero from '../../components/PageHero.astro';
+import { siteConfig } from '../../config/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = siteConfig.navigation.find((item) => item.href === '/company/')!.label;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={siteConfig.brand.companyIntroduction}
+  canonicalPath="/company/"
+>
+  <PageHero title={pageTitle} eyebrow={siteConfig.brand.name} />
+
+  <section class="page-section container container--narrow flow" aria-labelledby="overview-title">
+    <h2 id="overview-title">事業概要</h2>
+    <p class="section-lead">{siteConfig.brand.companyIntroduction}</p>
+  </section>
+
+  <section class="page-section container container--narrow flow" aria-labelledby="company-facts-title">
+    <h2 id="company-facts-title">基本情報</h2>
+    <dl class="facts">
+      <div>
+        <dt>会社名</dt>
+        <dd>{siteConfig.company.legalName.display}</dd>
+      </div>
+      <div>
+        <dt>法人番号</dt>
+        <dd>{siteConfig.company.corporateNumber}</dd>
+      </div>
+      <div>
+        <dt>所在地</dt>
+        <dd>
+          <p>{siteConfig.company.registeredAddress.display}</p>
+          <p class="supporting-note">
+            この所在地は、一般の来訪受付や大学施設への自由なアクセスを示すものではありません。
+          </p>
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="page-section container container--narrow flow" aria-labelledby="officers-title">
+    <h2 id="officers-title">役員</h2>
+    <dl class="facts">
+      {
+        siteConfig.company.officers.map((officer) => (
+          <div>
+            <dt>{officer.role}</dt>
+            <dd>{officer.name}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="page-section container container--narrow flow" aria-labelledby="origin-title">
+    <h2 id="origin-title">HarborGateの名称</h2>
+    <dl class="origin-list">
+      <div>
+        <dt>Harbor</dt>
+        <dd>{siteConfig.brand.origin.harbor}</dd>
+      </div>
+      <div>
+        <dt>Gate</dt>
+        <dd>{siteConfig.brand.origin.gate}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="page-section container container--narrow flow" aria-labelledby="recognition-title">
+    <h2 id="recognition-title">大学発ベンチャー認定</h2>
+    <p>{siteConfig.universityVenture.statement}</p>
+    <p class="supporting-note">{siteConfig.universityVenture.nonEndorsement}</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-section {
+    padding-block: var(--space-7);
+  }
+
+  .section-lead {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lead);
+  }
+
+  .facts,
+  .origin-list {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .facts > div,
+  .origin-list > div {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.35fr) minmax(0, 1fr);
+    gap: var(--space-3) var(--space-5);
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  dt {
+    font-weight: 700;
+  }
+
+  dd {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .supporting-note {
+    margin-block-start: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-small);
+  }
+
+  @media (max-width: 34rem) {
+    .facts > div,
+    .origin-list > div {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

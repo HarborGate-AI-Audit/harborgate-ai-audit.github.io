@@ -1,0 +1,35 @@
+---
+import PageHero from '../../components/PageHero.astro';
+import { siteConfig } from '../../config/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = siteConfig.navigation.find((item) => item.href === '/contact/')!.label;
+---
+
+<BaseLayout title={pageTitle} description={siteConfig.contact.message} canonicalPath="/contact/">
+  <PageHero title={pageTitle} eyebrow={siteConfig.brand.name} />
+
+  <section class="page-section container container--narrow flow" aria-labelledby="contact-status-title">
+    <h2 id="contact-status-title">現在のご案内</h2>
+    <p class="section-lead">{siteConfig.contact.message}</p>
+    <p>このサイトには、情報を送信するためのフォームや連絡機能はありません。</p>
+    <p class="notice">{siteConfig.contact.confidentialityNotice}</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-section {
+    padding-block: var(--space-7);
+  }
+
+  .section-lead {
+    font-size: var(--font-size-lead);
+  }
+
+  .notice {
+    padding: var(--space-5);
+    border-inline-start: 0.25rem solid var(--color-accent);
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+  }
+</style>
