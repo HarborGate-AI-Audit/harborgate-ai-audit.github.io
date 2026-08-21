@@ -1,0 +1,13 @@
+---
+import FaviconLinks from '../components/FaviconLinks.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'HarborGate AI Audit',
+  description = 'AIを、安心して使える力に',
+} = Astro.props;
+---
