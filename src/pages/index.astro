@@ -1,4 +1,7 @@
 ---
+import CallToAction from '../components/CallToAction.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { services } from '../data/services';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/site';
 ---
@@ -11,4 +14,116 @@ import { siteConfig } from '../config/site';
       <p class="lead">{siteConfig.brand.coreProposition}</p>
     </div>
   </section>
+
+  <section class="home-section container container--narrow flow" aria-labelledby="introduction-title">
+    <h2 id="introduction-title">組織に合わせたAI活用支援</h2>
+    <p class="section-lead">{siteConfig.brand.companyIntroduction}</p>
+    <p>{siteConfig.servicePosition.positioning}</p>
+    <p><a href="/company/">会社概要を見る</a></p>
+  </section>
+
+  <section class="home-section container flow" aria-labelledby="services-title">
+    <h2 id="services-title">サービス</h2>
+    <div class="service-grid">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+    <p class="section-link"><a href="/services/">サービスの詳細を見る</a></p>
+
+    <aside class="audit-note flow" aria-labelledby="audit-note-title">
+      <h2 id="audit-note-title">「Audit」の表記について</h2>
+      <p>{siteConfig.auditQualification}</p>
+    </aside>
+  </section>
+
+  <section class="home-section home-section--surface" aria-labelledby="approach-title">
+    <div class="container container--narrow flow">
+      <h2 id="approach-title">支援の考え方</h2>
+      <p class="section-lead">{siteConfig.brand.defaultDescription}</p>
+      <dl class="brand-origin">
+        <div>
+          <dt>Harbor</dt>
+          <dd>{siteConfig.brand.origin.harbor}</dd>
+        </div>
+        <div>
+          <dt>Gate</dt>
+          <dd>{siteConfig.brand.origin.gate}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="home-section container">
+    <CallToAction
+      title="ご相談を検討中の方へ"
+      body={siteConfig.contact.message}
+      href="/contact/"
+      label="お問い合わせ方法を確認する"
+    />
+  </div>
 </BaseLayout>
+
+<style>
+  .home-section {
+    padding-block: var(--space-7);
+  }
+
+  .home-section--surface {
+    border-block: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .section-lead {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lead);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+    gap: var(--space-5);
+  }
+
+  .section-link {
+    text-align: end;
+  }
+
+  .audit-note {
+    max-width: var(--width-reading);
+    padding: var(--space-5);
+    border-inline-start: 0.25rem solid var(--color-accent);
+    background: var(--color-surface);
+  }
+
+  .audit-note p {
+    color: var(--color-text-muted);
+  }
+
+  .brand-origin {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .brand-origin > div {
+    display: grid;
+    grid-template-columns: minmax(5rem, 0.25fr) minmax(0, 1fr);
+    gap: var(--space-3) var(--space-5);
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .brand-origin dt {
+    font-weight: 700;
+  }
+
+  .brand-origin dd {
+    min-width: 0;
+    margin: 0;
+  }
+
+  @media (max-width: 28rem) {
+    .brand-origin > div {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
