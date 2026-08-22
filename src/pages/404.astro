@@ -1,0 +1,25 @@
+---
+import PageHero from '../components/PageHero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ページが見つかりません"
+  description="お探しのページは見つかりませんでした。"
+  canonicalPath="/404.html"
+  noIndex={true}
+>
+  <PageHero title="ページが見つかりません" eyebrow="404" />
+
+  <section class="page-section container container--narrow flow" aria-labelledby="not-found-title">
+    <h2 id="not-found-title">ページを表示できません</h2>
+    <p>指定されたURLをご確認いただくか、ホームへ戻ってください。</p>
+    <p><a href="/">ホームへ戻る</a></p>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-section {
+    padding-block: var(--space-7);
+  }
+</style>

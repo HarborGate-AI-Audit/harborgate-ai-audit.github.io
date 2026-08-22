@@ -1,0 +1,51 @@
+---
+import PageHero from '../../components/PageHero.astro';
+import { siteConfig } from '../../config/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = siteConfig.navigation.find((item) => item.href === '/privacy/')!.label;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description="本サイトの現在の情報取扱い機能についてご案内します。"
+  canonicalPath="/privacy/"
+>
+  <PageHero title={pageTitle} eyebrow={siteConfig.brand.name} />
+
+  <div class="page-content container container--narrow flow">
+    <section class="flow" aria-labelledby="current-implementation-title">
+      <h2 id="current-implementation-title">現在のサイト機能</h2>
+      <p>
+        初期版の本サイトには、お問い合わせフォーム、アクセス解析、当社が運用するCookieベースのトラッキング、CMS、および顧客データを保存する機能を実装していません。
+      </p>
+    </section>
+
+    <section class="flow" aria-labelledby="information-entry-title">
+      <h2 id="information-entry-title">情報の入力について</h2>
+      <p>本サイトを通じて、個人情報、認証情報、営業秘密、未公開データその他の機密情報を送信または入力しないでください。</p>
+    </section>
+
+    <section class="flow" aria-labelledby="future-review-title">
+      <h2 id="future-review-title">今後の見直し</h2>
+      <p>
+        将来、情報を収集するフォーム等を導入する場合は、プライバシー、セキュリティ、法務および運用を確認し、本ページの内容を見直します。
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding-block: var(--space-7);
+  }
+
+  .page-content section + section {
+    padding-block-start: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .page-content p {
+    color: var(--color-text-muted);
+  }
+</style>

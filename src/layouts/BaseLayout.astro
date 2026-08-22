@@ -1,13 +1,61 @@
 ---
+import globalStylesheet from '../styles/global.css?url';
 import FaviconLinks from '../components/FaviconLinks.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { formatPageTitle, siteConfig } from '../config/site';
 
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  noIndex?: boolean;
+  bodyClass?: string;
 }
 
 const {
-  title = 'HarborGate AI Audit',
-  description = 'AIを、安心して使える力に',
+  title,
+  description = siteConfig.brand.defaultDescription,
+  canonicalPath = Astro.url.pathname,
+  noIndex = false,
+  bodyClass,
 } = Astro.props;
+
+const formattedTitle = formatPageTitle(title);
+const requestedUrl = new URL(canonicalPath, siteConfig.siteUrl + '/');
+const canonicalUrl = new URL(requestedUrl.pathname, siteConfig.siteUrl + '/');
 ---
+
+<!doctype html>
+<html lang={siteConfig.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={globalStylesheet} />
+    <FaviconLinks />
+    <title>{formattedTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={siteConfig.locale} />
+    <meta property="og:site_name" content={siteConfig.brand.name} />
+    <meta property="og:title" content={formattedTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <slot name="head" />
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main-content">本文へ移動</a>
+    <slot name="header">
+      <Header />
+    </slot>
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <slot name="footer">
+      <Footer />
+    </slot>
+  </body>
+</html>

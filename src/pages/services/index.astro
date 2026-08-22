@@ -1,0 +1,67 @@
+---
+import PageHero from '../../components/PageHero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { siteConfig } from '../../config/site';
+import { services } from '../../data/services';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = siteConfig.navigation.find((item) => item.href === '/services/')!.label;
+const pageDescription =
+  `${pageTitle}：${siteConfig.brand.defaultDescription}`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/services/"
+>
+  <PageHero title={pageTitle} eyebrow={siteConfig.brand.name} />
+
+  <section class="page-section container flow" aria-labelledby="service-position-title">
+    <h2 id="service-position-title">課題に合わせた支援</h2>
+    <p class="section-lead">{siteConfig.servicePosition.positioning}</p>
+  </section>
+
+  <section class="page-section container flow" aria-labelledby="service-list-title">
+    <h2 id="service-list-title">サービス一覧</h2>
+    <div class="service-grid">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+
+  <section class="page-section container" aria-labelledby="audit-note-title">
+    <div class="notice flow">
+      <h2 id="audit-note-title">「Audit」の表記について</h2>
+      <p>{siteConfig.auditQualification}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-section {
+    padding-block: var(--space-7);
+  }
+
+  .section-lead {
+    max-width: var(--width-reading);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lead);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+    gap: var(--space-5);
+  }
+
+  .notice {
+    max-width: var(--width-reading);
+    padding: var(--space-5);
+    border-inline-start: 0.25rem solid var(--color-accent);
+    background: var(--color-surface);
+  }
+
+  .notice p {
+    color: var(--color-text-muted);
+  }
+</style>
