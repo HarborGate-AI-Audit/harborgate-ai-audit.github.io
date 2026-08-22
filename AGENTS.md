@@ -195,3 +195,10 @@ Report:
 - applicable approvals, conditions, conflicts, pending decisions, and unverified layers;
 - generated outputs and whether they remain ignored;
 - whether commit, push, network access, dependency changes, or settings changes occurred.
+
+## 23. Content-planning governance
+
+- Consult `TODO.md` before starting planned site work and keep each implementation task small and scoped to its own branch and PR.
+- Consult `docs/content-plan.md` for page goals and composition, and consult `docs/content-register.md` for publication authority.
+- A status in `docs/content-plan.md` or `TODO.md` never overrides the publication status, wording, restrictions, or review triggers in `docs/content-register.md`.
+- Do not implement content marked `BLOCKED`. Obtain the identified human approval before proceeding wherever a human gate is recorded.
