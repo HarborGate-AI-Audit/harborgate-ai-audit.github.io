@@ -21,6 +21,7 @@
 ## 3. ビルド
 
 - [ ] `git diff --check`が成功する。
+- [ ] `npm run check`が成功し、Astro check errorがない。
 - [ ] `npm run build`が成功する。
 - [ ] Build outputにerrorがない。
 - [ ] Buildされたrouteと想定routeが一致する。

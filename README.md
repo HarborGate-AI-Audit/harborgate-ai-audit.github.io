@@ -55,11 +55,12 @@ npm run dev
 ## 9. 本番ビルド・プレビュー
 
 ```sh
+npm run check
 npm run build
 npm run preview
 ```
 
-現在利用できる検証コマンドは`git diff --check`と`npm run build`です。
+現在利用できる検証コマンドは`git diff --check`、`npm run check`、`npm run build`です。
 
 ## 10. リポジトリ構成
 
@@ -99,7 +100,7 @@ npm run preview
 
 ## 14. GitHub Pagesデプロイ
 
-`main`へのpushにより、現在のGitHub Actions workflowがAstroサイトをbuildしてGitHub Pagesへdeployします。workflow成功は、内容承認、ブラウザー表示、アクセシビリティ、公開URLの手動確認を代替しません。
+`main`へのpushにより、現在のGitHub Actions workflowが`npm ci`、`npm run check`、`npm run build`を順に実行し、AstroサイトをGitHub Pagesへdeployします。workflow成功は、内容承認、ブラウザー表示、アクセシビリティ、公開URLの手動確認を代替しません。
 
 ## 15. セキュリティ
 

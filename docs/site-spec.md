@@ -273,7 +273,7 @@ Website表示許可はrawまたはeditable source artworkの公開repository再�
 
 - 内容登録簿のstatus、wording、条件、review triggerを照合する。
 - 公開checklistを全項目reviewする。
-- `git diff --check`と`npm run build`を成功させる。
+- `git diff --check`、`npm run check`、`npm run build`をこの順に成功させる。
 - Company facts、officers、service、Audit、recognition、logo、contact、privacyをhuman reviewする。
 - Keyboard、focus、motion、responsive、link、404、favicon、manifestをmanual checkする。
 - GitHub Actions成功後にpublic URLをmanual checkする。

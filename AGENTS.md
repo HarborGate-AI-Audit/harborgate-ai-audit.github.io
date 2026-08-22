@@ -169,10 +169,11 @@ The currently available repository validation commands are:
 
 ```sh
 git diff --check
+npm run check
 npm run build
 ```
 
-`npm run check` is not currently available. `astro check` is planned for a later authorized dependency task. A successful build does not replace human checks for wording, accessibility, responsive behavior, links, deployment, or the public URL.
+`npm run check` performs Astro static and type validation and should run before `npm run build` for relevant site implementation changes. A successful check and build do not replace human checks for wording, accessibility, responsive behavior, links, deployment, or the public URL.
 
 ## 21. Commit and push authorization
 
