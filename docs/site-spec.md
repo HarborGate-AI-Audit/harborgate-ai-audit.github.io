@@ -253,6 +253,10 @@ Website表示許可はrawまたはeditable source artworkの公開repository再�
 - Approved copyとassetだけを使うOpen Graph metadata
 - Faviconとmanifestの全page共通化
 - 実際のindexing方針に一致する`robots.txt`
+- 初期公開では通常の公開ページのcrawlを許可する。
+- `robots.txt`は`User-agent: *`と`Allow: /`を指定する。
+- 404 pageは`robots.txt`で遮断せず、meta robotsの`noindex`でindex対象外とする。
+- Sitemapは未導入のため、`robots.txt`には記載しない。
 - 承認済みcompany factだけを使うstructured data
 
 ## 26. 技術制約

@@ -6,11 +6,13 @@ import { services } from '../../data/services';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const pageTitle = siteConfig.navigation.find((item) => item.href === '/services/')!.label;
+const pageDescription =
+  `${pageTitle}：${siteConfig.brand.defaultDescription}`;
 ---
 
 <BaseLayout
   title={pageTitle}
-  description={siteConfig.brand.defaultDescription}
+  description={pageDescription}
   canonicalPath="/services/"
 >
   <PageHero title={pageTitle} eyebrow={siteConfig.brand.name} />
