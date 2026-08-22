@@ -22,6 +22,15 @@ import { siteConfig } from '../config/site';
     <p><a href="/company/">会社概要を見る</a></p>
   </section>
 
+  <section class="home-section container container--narrow flow" aria-labelledby="strengths-title">
+    <h2 id="strengths-title">3つの強み</h2>
+    <ul class="strength-list">
+      <li>生成AIの企画・PoCから導入、運用、組織定着までを支援します。</li>
+      <li>AIの品質・ガバナンス・リスクを評価し、改善に向けた助言を行います。</li>
+      <li>情報セキュリティ、サイバーセキュリティ、教育・研修、生成AI利用時の情報管理と運用ルール整備を支援します。</li>
+    </ul>
+  </section>
+
   <section class="home-section container flow" aria-labelledby="services-title">
     <h2 id="services-title">サービス</h2>
     <div class="service-grid">
@@ -75,6 +84,13 @@ import { siteConfig } from '../config/site';
   .section-lead {
     color: var(--color-text-muted);
     font-size: var(--font-size-lead);
+  }
+
+  .strength-list {
+    display: grid;
+    gap: var(--space-3);
+    padding-inline-start: var(--space-5);
+    margin-block: 0;
   }
 
   .service-grid {

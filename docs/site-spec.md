@@ -4,7 +4,7 @@
 
 - 文書ID: `HG-WEB-SITE-SPEC`
 - 対象: 初期コーポレートサイト
-- 状態: 初期実装前の公開安全な仕様基線
+- 状態: 初期コーポレートサイトの公開安全な仕様基線
 - 正本: 本リポジトリの本ファイル
 - 関連文書: `AGENTS.md`、`content-register.md`、`release-checklist.md`
 

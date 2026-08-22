@@ -12,26 +12,26 @@ const titleId = 'service-' + service.id + '-title';
 <article class="service-card" id={'service-' + service.id} aria-labelledby={titleId}>
   <header class="service-card__header">
     <p class="service-card__category">{service.category}</p>
-    <h2 id={titleId}>{service.name}</h2>
+    <h3 class="service-card__title" id={titleId}>{service.name}</h3>
     <p class="service-card__summary">{service.summary}</p>
   </header>
 
   <div class="service-card__section">
-    <h3>主な対象</h3>
+    <h4>主な対象</h4>
     <ul>
       {service.targets.map((target) => <li>{target}</li>)}
     </ul>
   </div>
 
   <div class="service-card__section">
-    <h3>主なアウトプット</h3>
+    <h4>主なアウトプット</h4>
     <ul>
       {service.typicalOutputs.map((output) => <li>{output}</li>)}
     </ul>
   </div>
 
   <div class="service-card__section">
-    <h3>支援の進め方</h3>
+    <h4>支援の進め方</h4>
     <p>{service.supportApproach}</p>
   </div>
 </article>
@@ -58,7 +58,7 @@ const titleId = 'service-' + service.id + '-title';
     font-weight: 700;
   }
 
-  .service-card h2 {
+  .service-card__title {
     font-size: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);
   }
 
@@ -72,7 +72,7 @@ const titleId = 'service-' + service.id + '-title';
     gap: var(--space-2);
   }
 
-  .service-card__section h3 {
+  .service-card__section h4 {
     font-size: var(--font-size-body);
   }
 
