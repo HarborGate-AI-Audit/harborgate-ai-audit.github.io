@@ -143,7 +143,8 @@ Artifactは`docs/content-register.md`を置き換えない。PAGE taskは対応a
 ### Dependencies
 
 - `TODO`: `CONTENT-001`から`CONTENT-004`を`DONE`にして各copy artifactを作成し、その後`PAGE-001`を実装する。
-- `TODO`: `PAGE-001`の後に`QA-001`、`QA-002`、`QA-003`の順でreviewと公開検証を行う。
+- `TODO`: `PAGE-001`を`DONE`にし、その後`CONTENT-005`を承認済みcopy artifactへ確定して`PAGE-002`を実装する。
+- `TODO`: Core contentのQAは`PAGE-001`、`PAGE-002`、`PAGE-003`がすべて`DONE`になった後、`QA-001`、`QA-002`、`QA-003`の順で実施する。
 
 ### Deferred content
 
@@ -206,7 +207,8 @@ Artifactは`docs/content-register.md`を置き換えない。PAGE taskは対応a
 ### Dependencies
 
 - `TODO`: `PAGE-001`を`DONE`にし、その後`CONTENT-005`を承認済みcopy artifactへ確定して`PAGE-002`を実装する。
-- `TODO`: `PAGE-002`の後に`QA-001`、`QA-002`、`QA-003`の順でreviewと公開検証を行う。
+- `TODO`: `PAGE-002`の後は`CONTENT-006`を承認済みcopy artifactへ確定して`PAGE-003`を実装する。
+- `TODO`: Core contentのQAは`PAGE-001`、`PAGE-002`、`PAGE-003`がすべて`DONE`になった後、`QA-001`、`QA-002`、`QA-003`の順でreviewと公開検証を行う。
 
 ### Deferred content
 
