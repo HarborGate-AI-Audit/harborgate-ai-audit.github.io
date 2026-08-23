@@ -202,3 +202,6 @@ Report:
 - Consult `docs/content-plan.md` for page goals and composition, and consult `docs/content-register.md` for publication authority.
 - A status in `docs/content-plan.md` or `TODO.md` never overrides the publication status, wording, restrictions, or review triggers in `docs/content-register.md`.
 - Do not implement content marked `BLOCKED`. Obtain the identified human approval before proceeding wherever a human gate is recorded.
+- Use `TODO`, `BLOCKED`, `DEFERRED`, and `DONE` for the execution lifecycle. Retain stable IDs after completion; do not mark an item `DONE` unless its Definition of Done, human gates, register consistency, and durable `Evidence` are satisfied. Conversation memory is not durable evidence.
+- Record approved copy from `CONTENT-001` through `CONTENT-006` in `docs/content-copy/<STABLE-ID>.md` before starting the dependent PAGE task. The artifact does not supersede `docs/content-register.md`.
+- Complete PAGE tasks before their dependent QA tasks. `CORE_CONTENT_COMPLETE` has the explicit 12-item meaning defined in `TODO.md`; it does not mean that all future work is complete.

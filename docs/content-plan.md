@@ -12,7 +12,7 @@
 
 ## 2. 計画status
 
-本書と`TODO.md`では、次の語だけをplanning statusとして使用する。これらは`docs/content-register.md`のpublication decisionを置き換えない。
+本書では、次の語だけをplanning statusまたはexecution statusとして使用する。これらは`docs/content-register.md`のpublication decisionを置き換えない。Authorityの説明で`INTERNAL_ONLY`などの登録簿statusを引用する場合、それをplanning statusとして扱わない。
 
 | Status | 意味 |
 |---|---|
@@ -22,6 +22,15 @@
 | `TODO` | 着手可能な計画作業。未実装・未完了。 |
 | `BLOCKED` | 証拠、decision、承認または先行条件が不足しており、実装してはならない。 |
 | `DEFERRED` | 現在のcore content completionから意図的に外した将来候補。 |
+| `DONE` | `TODO.md`のexecution itemがDefinition of Doneを満たし、必要なhuman gateと登録簿照合を完了し、durableなEvidenceを記録した。 |
+
+`LIVE`、`APPROVED`、`DRAFT`はcontentの実装・publication状態を表し、`TODO`、`BLOCKED`、`DEFERRED`、`DONE`はexecution lifecycleを表す。Conversation memoryや説明だけでは`DONE`にしない。
+
+### Approved-copy handoff
+
+`CONTENT-001`から`CONTENT-006`が作る承認済みcopyは、対応する`docs/content-copy/<STABLE-ID>.md`をdurableなimplementation handoffとする。各artifactはStable ID、page/service scope、参照するcontent-register ID、exact approved wording、条件・必須disclaimer、durableなreview・commit evidenceを含む。対応artifactへexact human-approved copyを記録するまで、これらのCONTENT itemを`DONE`にできない。今回はartifactを作成しない。
+
+Artifactは`docs/content-register.md`を置き換えない。PAGE taskは対応artifactと実装時点の登録簿の双方を照合し、artifactの存在だけをpublication authorityとして扱わない。
 
 ## 3. `/` ホーム
 
@@ -60,7 +69,7 @@
 - `APPROVED`: Brandとpositioningは`BRAND-001`から`BRAND-004`を参照する。
 - `APPROVED`: Service status、scope、個別設計方針は`SERVICE-000`から`SERVICE-005`を参照する。
 - `APPROVED`: Audit説明は`AUDIT-001`のmandatory wordingと条件を使用する。
-- `APPROVED`: Contactのpreparation-state案内は`CONTACT-003`の条件内に限る。
+- `LIVE`: Contactのpreparation-state案内は現行siteに実装されている。`LIVE`はpublication authorityではなく、新しいcontact copyまたはdestinationには登録簿上の承認とhuman gateが必要である。
 
 ### Content still to draft
 
@@ -75,9 +84,9 @@
 
 ### Dependencies
 
-- `TODO`: `CONTENT-001`から`CONTENT-004`のservice copy。
-- `TODO`: `CONTENT-006`のhomepage refinement。
-- `TODO`: `QA-001`から`QA-003`のreviewと公開検証。
+- `TODO`: `PAGE-001`、`PAGE-002`の順でserviceとcompanyを実装する。
+- `TODO`: `CONTENT-006`を承認済みcopy artifactへ確定し、その後`PAGE-003`を実装する。
+- `TODO`: `PAGE-003`の後に`QA-001`、`QA-002`、`QA-003`の順でreviewと公開検証を行う。
 
 ### Deferred content
 
@@ -133,8 +142,8 @@
 
 ### Dependencies
 
-- `TODO`: `CONTENT-001`から`CONTENT-004`。
-- `TODO`: `QA-001`から`QA-003`。
+- `TODO`: `CONTENT-001`から`CONTENT-004`を`DONE`にして各copy artifactを作成し、その後`PAGE-001`を実装する。
+- `TODO`: `PAGE-001`の後に`QA-001`、`QA-002`、`QA-003`の順でreviewと公開検証を行う。
 
 ### Deferred content
 
@@ -171,7 +180,8 @@
 - `TODO`: Mission。
 - `TODO`: Harbor/Gate brand origin。
 - `APPROVED`: Legal company information。
-- `APPROVED`: University-venture recognitionとcompany/university separation。
+- `APPROVED`: University-venture recognition。
+- `BLOCKED`: 新しい明示的なcompany/university separation wordingは、公開承認済みの登録簿entryまたはhuman-authorizedな登録簿更新・分割ができるまで追加しない。
 - `BLOCKED`: Research・technical credibilityはitem-level verificationとpublication approval後だけ追加する。
 - `DEFERRED`: Academic titleは別途承認されるまで掲載対象外とする。
 
@@ -179,7 +189,8 @@
 
 - `APPROVED`: Legal、normalized display、brand、officer情報は`ORG-001`から`ORG-005`、`BRAND-001`から`BRAND-004`、`TEAM-001`、`TEAM-002`を参照する。
 - `APPROVED`: Recognitionは`UNI-001`から`UNI-005`の公開可能な項目と全条件を参照する。
-- `APPROVED`: Public-facingな主体分離は`UNI-008`の制約内で扱う。
+- `LIVE`: 現行Company pageは、すでに`APPROVED`のcompany facts、recognition wording、recognition date、non-endorsement wordingに基づく。
+- `INTERNAL_ONLY`: `UNI-008`はcompanyとuniversityを混同しないためのgovernance constraintであり、public copyのauthorityではない。新しい明示的な主体分離wordingには、公開承認済みの登録簿entryまたはhuman-authorizedな登録簿更新・分割が必要である。
 
 ### Content still to draft
 
@@ -194,8 +205,8 @@
 
 ### Dependencies
 
-- `TODO`: `CONTENT-005`。
-- `TODO`: `QA-001`から`QA-003`。
+- `TODO`: `PAGE-001`を`DONE`にし、その後`CONTENT-005`を承認済みcopy artifactへ確定して`PAGE-002`を実装する。
+- `TODO`: `PAGE-002`の後に`QA-001`、`QA-002`、`QA-003`の順でreviewと公開検証を行う。
 
 ### Deferred content
 
@@ -233,12 +244,13 @@
 
 ### Content already approved
 
-- `APPROVED`: Current preparation-state案内とconfidentiality noticeは`CONTACT-003`の条件内で扱う。
+- `LIVE`: Current preparation-state案内とconfidentiality noticeは現行siteに実装されている。`LIVE`はimplementation stateであり、publication authorityではない。
+- `BLOCKED`: `CONTACT-003`はfuture formのreview decisionが未完了であり、current copyまたは新規copyのpublication authorityにはならない。
 - `APPROVED`: University email・telephoneを掲載しない制約は`CONTACT-001`、`CONTACT-002`を参照する。
 
 ### Content still to draft
 
-- `BLOCKED`: Company contact channelとformのcopyはdestination、operation、privacy、securityのdecision後にdraftする。
+- `BLOCKED`: Company contact channelとformのcopyはdestination、operation、privacy、securityのdecision後にdraftする。新しいdestinationまたはcopyは、登録簿上のpublication decisionと必要なhuman gateなしに追加しない。
 
 ### Facts/evidence still required
 
@@ -345,7 +357,7 @@ Siteが収集する情報とcontact機能の有無を確認する閲覧者、お
 
 ### Dependencies
 
-- `TODO`: Route、metadata、internal linkのrelease QA。
+- `TODO`: Public behaviorの検証は`QA-003`に依存する。
 
 ### Deferred content
 
@@ -383,11 +395,20 @@ Siteが収集する情報とcontact機能の有無を確認する閲覧者、お
 - `DEFERRED`: `CONTENT-007`、`CONTENT-008`、`ASSET-002`、`SEO-004`。
 - `TODO`: 全共通contentが登録簿とpage contentに一致し、unapproved asset、claim、tracking、contact mechanismを含まない。
 
-## 10. 運用方法
+## 10. `CORE_CONTENT_COMPLETE`
+
+Milestone `CORE_CONTENT_COMPLETE`は、`TODO.md`に定義する12個のP0 item、すなわち`CONTENT-001`から`CONTENT-006`、`PAGE-001`から`PAGE-003`、`QA-001`から`QA-003`がすべて`DONE`の場合だけ成立する。
+
+このmilestoneはnext content expansionが実装、review、deploy、public validationまで完了したことを示す。Contact form、custom domain、university logo、research、case studies、analytics、optional OGP、および他の`P1`・`P2`・`BLOCKED`・`DEFERRED` itemは、人が明示的にP0へ昇格しない限りblockerではない。すべてのfuture workが完了したことは意味しない。
+
+## 11. 運用方法
 
 1. 作業開始前に`TODO.md`から1つのstable IDまたは小さな関連ID群を選ぶ。
 2. `docs/content-plan.md`でpage goalを確認する。
 3. `docs/content-register.md`でfact、wording、condition、restriction、review triggerを確認する。
 4. `DRAFT`はhuman review前に公開せず、`BLOCKED`はblock解除前に実装しない。
-5. 実装、content approval、release QAを別のreview gateとして記録する。
-6. 完了した項目だけを、Definition of Doneの証拠とともに`TODO.md`で更新する。
+5. `CONTENT-001`から`CONTENT-006`は`docs/content-copy/<STABLE-ID>.md`へ承認済みcopyを記録してから、依存するPAGE taskへ進む。
+6. PAGE taskを完了してから、依存するQA taskへ進む。
+7. 実装、content approval、release QAを別のreview gateとして記録する。
+8. Definition of Done、human gate、登録簿整合を満たし、review・approval・validationを回収可能なdurable Evidenceへ記録した項目だけを`DONE`にする。Conversation memoryだけをEvidenceにしない。
+9. Stable IDは`DONE`後も保持し、通常の再作業は新しいchange IDで管理する。元のDefinition of Doneが未達だったと実証できる場合だけ元itemをreopenする。
