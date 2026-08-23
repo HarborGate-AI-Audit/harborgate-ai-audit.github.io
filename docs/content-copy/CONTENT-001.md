@@ -3,13 +3,13 @@
 ## 1. Artifact status
 
 - Stable ID: `CONTENT-001`
-- State: `HUMAN_APPROVED_PENDING_COMMIT`
+- State: `HUMAN_APPROVED_DURABLE`
 - Target page: `/services/`
 - Service: `HarborGate AI Audit`
 - Publication authority: `docs/content-register.md`
 - Implementation consumer: `PAGE-001`
 
-このartifact自体は公開を許可するものではありません。`CONTENT-001`を`DONE`にする前、または`PAGE-001`がこのcopyを利用する前に、人間による承認と`docs/content-register.md`との整合確認が必要です。
+このartifact自体は公開を許可するものではありません。`PAGE-001`がこのcopyを利用する前に、`CONTENT-001`から`CONTENT-004`までの完了と、実装時点の`docs/content-register.md`との整合確認が必要です。
 
 ## 2. Authority references
 
@@ -30,7 +30,7 @@ Publication authorityとして参照する登録簿ID:
 
 ## 3. Draft public copy
 
-このsectionだけが、将来のpublic implementationを想定したdraft copyです。人間による承認が完了するまでは公開しません。
+このsectionのSections 3.1–3.7だけが、将来のpublic implementationを想定して人間承認されたcopyです。Artifactの記録だけでは実装を許可せず、`PAGE-001`の全dependencyと実装時点の登録簿を確認します。
 
 ### 3.1 Short service introduction
 
@@ -113,7 +113,8 @@ HarborGate AI Auditは、AIモデル、プロンプト設計、運用プロセ�
 - Approved wording: `Sections 3.1–3.7 exactly as recorded in this artifact`
 - Human approval date: `2026-08-23`
 - Human approval instruction: `CONTENT-001をこの文面で承認します`
-- Durable approval evidence: `PENDING_COMMIT`
-- Implementation handoff: `BLOCKED until durable commit evidence is recorded and CONTENT-001 is completed in TODO.md`
+- Approved-copy SHA-256: `f6e1e81835c618a66eca8a5626de27d408f2681e729f9fc79635c129edb146b6`
+- Durable approval evidence: `Git commit 6e9c613322de8c306f91ac99fbc0213e6a999810`
+- Implementation handoff: `READY_FOR_PAGE-001 when CONTENT-001 through CONTENT-004 are DONE`
 
-人間の判断はこのworking-tree artifactに記録されていますが、conversation memoryと未commitのworking treeはdurableなcompletion evidenceではありません。後続の明示的なcommit taskでこのexact approved artifactをcommitするまで、`CONTENT-001`を完了できません。
+人間が承認したSections 3.1–3.7のexact copyは、Git commit `6e9c613322de8c306f91ac99fbc0213e6a999810`にdurableに記録されています。Section 4は引き続draftであり、承認scopeに含まれません。`PAGE-001`は`CONTENT-001`から`CONTENT-004`までのすべてが`DONE`になるまで開始できません。
