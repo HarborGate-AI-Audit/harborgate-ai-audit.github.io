@@ -62,9 +62,9 @@ Milestone `CORE_CONTENT_COMPLETE`は、次の12個のP0 itemがすべて`DONE`�
 - **Task:** HarborGate DX Consultingの詳細service copyを、target problems、scope、typical outputs、support approach、suitable consultation examplesの5要素でdraftする。
 - **Dependency:** `SERVICE-003`、`SERVICE-005`と現行implementation。
 - **Human gate:** Public copyの承認が必要。
-- **Status:** `TODO`
+- **Status:** `DONE`
 - **Definition of Done:** 5要素が承認済みscope内で揃い、price、case count、guarantee、unapproved availabilityを含まず、exact human-approved copyが`docs/content-copy/CONTENT-003.md`へdurableに記録され、実装taskへ渡せる。
-- **Evidence:** —
+- **Evidence:** `docs/content-copy/CONTENT-003.md`; approved-copy snapshot `3e3f5083c2ac6bb8a0ce233af432763e969fe713`; Sections 3.1–3.6; SHA-256 `d2e4060ae782206beddb4f8b8b49f0209317c6ff4fa8abf192c8787772c4448b`; human approval 2026-08-24
 
 ### `CONTENT-004`
 
