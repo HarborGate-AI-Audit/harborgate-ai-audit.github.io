@@ -26,7 +26,7 @@ Publication authorityとして参照する登録簿ID:
 
 このsectionはreview metadataであり、公開用copyではありません。
 
-## 3. Draft public copy
+## 3. Human-approved public copy
 
 このsectionのSections 3.1–3.6だけが、将来のpublic implementationを想定して人間承認されたcopyです。Artifactの記録だけでは実装を許可せず、`PAGE-001`の全dependencyと実装時点の登録簿を確認します。
 
