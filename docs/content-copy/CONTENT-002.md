@@ -3,13 +3,13 @@
 ## 1. Artifact status
 
 - Stable ID: `CONTENT-002`
-- State: `HUMAN_APPROVED_PENDING_COMMIT`
+- State: `HUMAN_APPROVED_DURABLE`
 - Target page: `/services/`
 - Service: `HarborGate AI Consulting`
 - Publication authority: `docs/content-register.md`
 - Implementation consumer: `PAGE-001`
 
-このartifact自体は公開を許可するものではありません。`CONTENT-002`を`DONE`にする前、または`PAGE-001`がこのcopyを利用する前に、承認済みcopyのdurable evidenceと`docs/content-register.md`との整合確認が必要です。
+このartifact自体は公開を許可するものではありません。`PAGE-001`がこのcopyを利用する前に、`CONTENT-001`から`CONTENT-004`までの完了と、実装時点の`docs/content-register.md`との整合確認が必要です。
 
 ## 2. Authority references
 
@@ -28,7 +28,7 @@ Publication authorityとして参照する登録簿ID:
 
 ## 3. Draft public copy
 
-このsectionのSections 3.1–3.6は、将来のpublic implementationを想定した未承認draftです。人間による文面承認とdurableな記録が完了するまで実装しません。
+このsectionのSections 3.1–3.6だけが、将来のpublic implementationを想定して人間承認されたcopyです。Artifactの記録だけでは実装を許可せず、`PAGE-001`の全dependencyと実装時点の登録簿を確認します。
 
 ### 3.1 Short service introduction
 
@@ -170,7 +170,7 @@ PoCで何を確認するかを整理し、対象範囲や確認事項を明確�
 - Human approval date: `2026-08-24`
 - Human approval instruction: `CONTENT-002の公開copyとして、Sections 3.1–3.6を承認対象とし、その承認済みcopy SHA-256を a58ae7b943873c6ed02b6e3747705a5dec9461cc60658259f9d2887978e0d2fb とします。Sections 3.1–3.6の内容を変更しないapproval metadata、State、heading、review checklist等のmetadata-only更新については、公開copy本文の再承認を必要としないものとします。`
 - Approved-copy SHA-256: `a58ae7b943873c6ed02b6e3747705a5dec9461cc60658259f9d2887978e0d2fb`
-- Durable approval evidence: `PENDING_COMMIT`
-- Implementation handoff: `BLOCKED until durable commit evidence is recorded and CONTENT-002 is completed in TODO.md`
+- Durable approval evidence: `Git commit 0269c43c95750d1cbb45519b02023e5647fcef8d`
+- Implementation handoff: `READY_FOR_PAGE-001 when CONTENT-001 through CONTENT-004 are DONE`
 
-人間の判断はこのworking-tree artifactに記録されていますが、conversation memoryと未commitのworking treeはdurableなcompletion evidenceではありません。後続の明示的なcommit taskでこのexact approved copyを含むartifactをcommitするまで、`CONTENT-002`を完了できません。
+人間が承認したSections 3.1–3.6のexact copyは、Git commit `0269c43c95750d1cbb45519b02023e5647fcef8d`にdurableに記録されています。Section 4はreview metadataであり、承認scopeに含まれません。`PAGE-001`は`CONTENT-001`から`CONTENT-004`までのすべてが`DONE`になるまで開始できません。
