@@ -84,9 +84,9 @@ Milestone `CORE_CONTENT_COMPLETE`は、次の12個のP0 itemがすべて`DONE`�
 - **Task:** Services pageと既存のreusable service-data/component architectureへ4 serviceの承認済み詳細copyを実装する。
 - **Dependency:** `CONTENT-001`、`CONTENT-002`、`CONTENT-003`、`CONTENT-004`がすべて`DONE`で、`docs/content-copy/CONTENT-001.md`、`CONTENT-002.md`、`CONTENT-003.md`、`CONTENT-004.md`が存在すること。
 - **Human gate:** Implementation scope authorizationとexact approved copyを実装することの確認が必要。Commit、push、merge、deploymentはそれぞれ該当taskで別途明示的な承認が必要。
-- **Status:** `TODO`
+- **Status:** `DONE`
 - **Definition of Done:** 4 serviceのcontent setが各artifactと登録簿の承認scope内で実装され、Audit qualificationを含み、price、case count、guarantee、unapproved availabilityを追加せず、`npm run check`と`npm run build`を通過し、accepted workflowのPR・commit evidenceがdurableに記録された後だけ`DONE`になる。
-- **Evidence:** —
+- **Evidence:** implementation snapshot `3a913d3990fc4adc88ba22048a458e13dd1e475f`; Draft PR #7 `https://github.com/HarborGate-AI-Audit/harborgate-ai-audit.github.io/pull/7`; approved-copy implementation: `CONTENT-001` Sections 3.1–3.7 exact match, `CONTENT-002` Sections 3.1–3.6 exact match, `CONTENT-003` Sections 3.1–3.6 exact match, `CONTENT-004` Sections 3.1–3.6 exact match; `CONTENT-001` Section 3.7 verified; CONTACT authority gate PASS; legacy/unapproved services-copy audit PASS; `npm run check` PASS (0 errors / 0 warnings / 0 hints); `npm run build` PASS (6 pages generated); generated HTML verification PASS; responsive QA 320/768/1440 PASS; accessibility/keyboard QA PASS; homepage regression QA PASS
 
 ### `CONTENT-005`
 
