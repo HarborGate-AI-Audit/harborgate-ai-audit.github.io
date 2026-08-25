@@ -3,13 +3,13 @@
 ## 1. Artifact status
 
 - Stable ID: `CONTENT-004`
-- State: `HUMAN_APPROVED_PENDING_COMMIT`
+- State: `HUMAN_APPROVED_DURABLE`
 - Target page: `/services/`
 - Service: `HarborGate Security Consulting`
 - Publication authority: `docs/content-register.md`
 - Implementation consumer: `PAGE-001`
 
-このartifactは人間レビュー前のDRAFTであり、公開用copyとして承認されていません。`PAGE-001`がこのcopyを利用する前に、public copyの人間承認、durable evidenceの記録、`CONTENT-001`から`CONTENT-004`までの完了、および実装時点の`docs/content-register.md`との整合確認が必要です。
+このartifact自体は公開を許可するものではありません。`PAGE-001`がこのcopyを利用する前に、`CONTENT-001`から`CONTENT-004`までの完了と、実装時点の`docs/content-register.md`との整合確認が必要です。
 
 ## 2. Authority references
 
@@ -28,7 +28,7 @@ Publication authorityとして参照する登録簿ID:
 
 ## 3. Draft public copy
 
-このsectionのSections 3.1–3.6だけが、将来のpublic implementationを想定した人間レビュー用DRAFTです。現時点では人間承認、approved-copy SHA、durable evidenceのいずれも確定しておらず、public implementationを許可するものではありません。
+このsectionのSections 3.1–3.6だけが、将来のpublic implementationを想定して人間承認されたcopyです。Artifactの記録だけでは実装を許可せず、`PAGE-001`の全dependencyと実装時点の登録簿を確認します。
 
 ### 3.1 サービス概要
 
@@ -173,7 +173,7 @@ HarborGate Security Consultingでは、次の領域に関する支援を行い�
 - Human approval date: `2026-08-25`
 - Human approval instruction: `2026-08-25にSections 3.1–3.6を変更なしで承認。Approved-copy SHA-256は e7683eaa02086f9600dc2adc1e13d9f31b3a8f17858e8f7cfd8f265c5a05d301。Sections 3.1–3.6外のmetadata-only更新は承認済みpublic copyを変更しない。`
 - Approved-copy SHA-256: `e7683eaa02086f9600dc2adc1e13d9f31b3a8f17858e8f7cfd8f265c5a05d301`
-- Durable approval evidence: `PENDING`
-- Implementation handoff: `NOT_READY — human approval and durable evidence required; PAGE-001 also requires CONTENT-001 through CONTENT-004 DONE`
+- Durable approval evidence: `Git commit 98fa8ff94106b36890ce43969225131815c3baa9`
+- Implementation handoff: `READY_FOR_PAGE-001 when CONTENT-001 through CONTENT-004 are DONE`
 
-Sections 3.1–3.6は人間レビュー用DRAFTであり、公開copyとして承認されていません。`CONTENT-004`は`TODO`のままであり、`PAGE-001`は開始できません。
+人間が承認したSections 3.1–3.6のexact copyは、Git commit `98fa8ff94106b36890ce43969225131815c3baa9`にdurableに記録されています。Section 4はreview metadataであり、承認scopeに含まれません。`PAGE-001`は`CONTENT-001`から`CONTENT-004`までのすべてが`DONE`になるまで開始できません。
