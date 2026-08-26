@@ -1,0 +1,205 @@
+---
+import type { ContentListItem, ServiceDefinition } from '../data/services';
+
+interface Props {
+  service: ServiceDefinition;
+}
+
+const { service } = Astro.props;
+const titleId = 'service-' + service.id + '-title';
+
+const renderListItem = (item: ContentListItem) => item;
+---
+
+<article
+  class="service-detail"
+  id={'service-' + service.id}
+  data-content-id={service.contentId}
+  aria-labelledby={titleId}
+>
+  <header class="service-detail__header flow">
+    <h2 id={titleId}>{service.name}</h2>
+  </header>
+
+  <div class="service-detail__sections">
+    <section class="service-detail__section flow" data-content-id={service.contentId} data-section="3.1">
+      <h3>サービス概要</h3>
+      {service.introduction.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    <section class="service-detail__section flow" data-content-id={service.contentId} data-section="3.2">
+      <h3>対象となる課題</h3>
+      {service.targetProblems.lead.map((paragraph) => <p>{paragraph}</p>)}
+      <ul>
+        {service.targetProblems.items.map((item) => <li>{item}</li>)}
+      </ul>
+      {service.targetProblems.followup?.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    <section class="service-detail__section flow" data-content-id={service.contentId} data-section="3.3">
+      <h3>支援範囲</h3>
+      {service.scope.lead?.map((paragraph) => <p>{paragraph}</p>)}
+      {
+        service.scope.items && (
+          <ul>
+            {service.scope.items.map((rawItem) => {
+              const item = renderListItem(rawItem);
+              return (
+                <li>
+                  {item.heading && <strong>{item.heading}</strong>}{' '}
+                  {item.text}
+                </li>
+              );
+            })}
+          </ul>
+        )
+      }
+      {
+        service.scope.areas && (
+          <div class="service-detail__areas">
+            {service.scope.areas.map((area) => (
+              <section class="service-detail__area flow">
+                <h4>{area.heading}</h4>
+                {area.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              </section>
+            ))}
+          </div>
+        )
+      }
+      {service.scope.followup?.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    <section class="service-detail__section flow" data-content-id={service.contentId} data-section="3.4">
+      <h3>想定アウトプット</h3>
+      {service.typicalOutputs.lead.map((paragraph) => <p>{paragraph}</p>)}
+      <ul>
+        {service.typicalOutputs.items.map((rawItem) => {
+          const item = renderListItem(rawItem);
+          return (
+            <li>
+              {item.heading && <strong>{item.heading}</strong>}{' '}
+              {item.text}
+            </li>
+          );
+        })}
+      </ul>
+      {service.typicalOutputs.followup?.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    <section class="service-detail__section flow" data-content-id={service.contentId} data-section="3.5">
+      <h3>支援の進め方</h3>
+      {service.supportApproach.lead.map((paragraph) => <p>{paragraph}</p>)}
+      {
+        service.supportApproach.steps && (
+          <ol>
+            {service.supportApproach.steps.map((step) => <li>{step}</li>)}
+          </ol>
+        )
+      }
+      {service.supportApproach.followup?.map((paragraph) => <p>{paragraph}</p>)}
+    </section>
+
+    <section class="service-detail__section flow" data-content-id={service.contentId} data-section="3.6">
+      <h3>適した相談例</h3>
+      {service.consultationExamples.lead.map((paragraph) => <p>{paragraph}</p>)}
+      <ul>
+        {service.consultationExamples.items.map((item) => <li>{item}</li>)}
+      </ul>
+      {service.consultationExamples.note && <p>{service.consultationExamples.note}</p>}
+    </section>
+
+    {
+      service.auditQualification && (
+        <section
+          class="service-detail__section service-detail__qualification flow"
+          data-content-id={service.contentId}
+          data-section="3.7"
+        >
+          <h3>「Audit」の表記について</h3>
+          <p>{service.auditQualification.text}</p>
+        </section>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .service-detail {
+    min-width: 0;
+    scroll-margin-top: var(--space-5);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-small);
+  }
+
+  .service-detail__header {
+    padding: clamp(var(--space-5), 5vw, var(--space-7));
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .service-detail__header h2 {
+    font-size: clamp(1.75rem, 1.45rem + 1.5vw, 2.5rem);
+  }
+
+  .service-detail__sections {
+    display: grid;
+  }
+
+  .service-detail__section {
+    min-width: 0;
+    padding: clamp(var(--space-5), 5vw, var(--space-7));
+  }
+
+  .service-detail__section + .service-detail__section {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .service-detail__section h3 {
+    font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.65rem);
+  }
+
+  .service-detail__section p,
+  .service-detail__section li {
+    max-width: var(--width-reading);
+  }
+
+  .service-detail__section > p,
+  .service-detail__section li,
+  .service-detail__area p {
+    color: var(--color-text-muted);
+  }
+
+  .service-detail__section ul,
+  .service-detail__section ol {
+    display: grid;
+    gap: var(--space-2);
+    padding-inline-start: var(--space-5);
+    margin-block: 0;
+  }
+
+  .service-detail__areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-4);
+  }
+
+  .service-detail__area {
+    min-width: 0;
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+    background: var(--color-background);
+  }
+
+  .service-detail__area h4 {
+    margin-block: 0;
+    font-size: var(--font-size-body);
+  }
+
+  .service-detail__qualification {
+    border-inline-start: 0.25rem solid var(--color-accent);
+    background: var(--color-background);
+  }
+</style>
