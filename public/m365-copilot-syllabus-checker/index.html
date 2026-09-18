@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>大学事務のための生成ＡＩ｜シラバス一括点検</title>
+
+  <meta name="description" content="Microsoft 365 Copilot 実践編。シラバス一括点検を題材に、ＡＩで道具を作り、その道具でＡＩを使う仕事の進め方を紹介します。">
+  <link rel="canonical" href="https://www.hg.ai-audit.co.jp/m365-copilot-syllabus-checker/">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- highlight Theme -->
+
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+
+
+
+    <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+
+
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/customcontrols/style.css">
+
+
+
+
+
+  <!-- Revealjs Theme -->
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/white.css" id="theme">
+
+
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+    <link rel="stylesheet" href="libs/styles/iota.css">
+    <link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+
+
+   <!-- css list -->
+
+  <link rel="stylesheet" href="style.css">
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+
+
+
+
+        <section >
+
+            <!-- 1: 繰り返し使える道具とＡＩの組み合わせを講演の軸にする。 -->
+<div class="slide-body title-slide">
+<p class="eyebrow">本編　01 / 22</p>
+<h2>大学事務のための生成ＡＩ</h2>
+<p class="subtitle">Microsoft 365 Copilot 実践編</p>
+<p class="hero">ＡＩで道具を作り、<br>その道具でＡＩを使う。</p>
+<p class="title-detail">シラバス一括点検から考える、仕事の変え方</p>
+<p class="presenter">白濵 成希<br><span>下関市立大学 データサイエンス学部</span></p>
+<p class="date">２０２６年９月２４日（木）｜大学事務職員研修</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_01.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今日は、生成ＡＩに文章を書かせるだけではない使い方を紹介します。学務からいただいたシラバス点検の相談を題材に、実際に動く道具を作りました。提出されたエクセルをまとめて処理し、割合と記載漏れを点検します。さらに、文章の食い違いをコパイロットに見てもらいます。
+<p>皆さんにプログラムを覚えていただくことが目的ではありません。「自分の業務でも、この考え方なら使えそうだ」と感じていただくことが今日の目標です。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 2: 業務の身近な繰り返しを入口に、仕事の分担を変える意味を示す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　02 / 22</p>
+<h2>探す・転記する・読み合わせる</h2>
+<div class="three-column">
+<div class="definition-card">
+<h3>毎回、探す</h3>
+<p>必要な箇所を<br>資料から見つける</p>
+</div>
+<div class="definition-card">
+<h3>毎回、写す</h3>
+<p>同じ情報を<br>別の表へ移す</p>
+</div>
+<div class="definition-card">
+<h3>毎回、比べる</h3>
+<p>違いや漏れを<br>目で確認する</p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>探す仕事を減らし、根拠を確かめる仕事へ。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_02.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+私は、生成ＡＩを大学事務に取り入れていくことは、これからの仕事を考えるうえで避けて通れないと考えています。ただし、何でもＡＩに任せるという話ではありません。毎回同じように行う作業の中に、機械やＡＩに助けてもらえる部分があるなら、ぜひ使っていきたいということです。
+<p>この講演では、ＤＸを「デジタル技術で仕事の進め方を変えること」、ＡＸを「ＡＩを使える前提で、その分担を組み直すこと」という意味で使います。用語を覚える必要はありません。今回なら、目で探す作業を減らし、根拠を確かめて判断する仕事に力を使える形へ変える、ということです。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 3: 本学で使える道具から始め、実演用教材と業務資料を区別する。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　03 / 22</p>
+<h2>まずは本学のコパイロットから</h2>
+<div class="two-column">
+<div class="definition-card">
+<h3>まとめて処理する</h3>
+<p>Microsoft Excel<br><strong>デスクトップ版</strong></p>
+</div>
+<div class="definition-card">
+<h3>文章を確かめる</h3>
+<p>Microsoft 365 Copilot Chat<br><strong>学校用のチャット</strong></p>
+</div>
+</div><div class="callout primary-message">
+<p>大学が認めたアカウント・資料・保存先で、小さく始める。</p>
+</div>
+<p class="scope-note">今日の実演は、研修用の架空シラバスです。</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_03.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+本学ではコパイロットを使えるので、その環境を活用することを提案します。今回は、エクセルのマクロと、学校用のコパイロットのチャットを組み合わせます。エクセルの中にある高度なＡＩ機能を、全員が同じように使えることを前提にはしていません。
+<p>実際の資料を使う際は、大学が認めたアカウントと保存先を使います。今日の実演は架空の教材です。コパイロットに渡すのは、マクロが作った「確認してほしい原文と依頼文」です。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 4: 三つの相談を、一覧で確認できる業務上の成果へ結び付ける。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　04 / 22</p>
+<h2>学務からの相談は、三つの点検</h2>
+<div class="three-column">
+<div class="definition-card">
+<h3>割合</h3>
+<p>合計は１００％か</p>
+</div>
+<div class="definition-card">
+<h3>記載漏れ</h3>
+<p>必須欄が空いていないか</p>
+</div>
+<div class="definition-card">
+<h3>文章</h3>
+<p>概要と目標に<br>食い違いはないか</p>
+</div>
+</div><div class="callout primary-message">
+<p>欲しいのは、<strong>気になる科目・箇所・理由の一覧。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_04.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+学務からは、シラバスのチェックを効率化したいという相談がありました。文章がおかしくないか、成績評価の割合が百パーセントか、必要な欄に記載があるか。この三つです。
+<p>ここで大事なのは、実際の業務では複数のファイルや科目を扱うことです。一科目ごとに文章をコピーし、毎回ＡＩに指示を出すのでは、それ自体が新しい仕事になってしまいます。そこで、複数科目をまとめて点検し、気になる担当教員・科目・場所を一覧にすることを目標にしました。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 5: Campusmateの出力を利用する発想と、対象様式の条件を示す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　05 / 22</p>
+<h2>出せるデータを、そのまま入口に</h2>
+<div class="flow-line">
+<div class="flow-box">Campusmate<br><span>キャンパスメイト</span></div>
+<span class="arrow" aria-hidden="true">→</span>
+<div class="flow-box">シラバスを<br>エクセルへ出力</div>
+<span class="arrow" aria-hidden="true">→</span>
+<div class="flow-box">同じ様式を<br>まとめて読む</div>
+</div>
+<div class="callout primary-message">
+<p><strong>打ち直さず、既存の出力に点検の道具を足す。</strong></p>
+</div>
+<p class="scope-note">今回の様式・一シート一科目が対象。システムへの自動書き戻しはしません。</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_05.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今回、私が着目したのは、Campusmateからシラバスをエクセルへ出力できることでした。すでにデータを取り出せるのであれば、印刷して読み直したり、別の表へ手で転記したりする前に、プログラムで処理できそうです。
+<p>私は、業務の内容とエクセル処理の両方について知見があったので、「この出力をマクロでまとめて読めばよい」と考えました。これは、ＡＩが勝手に学内システムの構造を理解して提案したのではありません。人が、取り出せる材料とやりたいことを結び付けています。</p>
+<p>今回はCampusmateの内部へ直接接続したり、登録内容を自動で書き戻したりしません。既存の出力機能の先に、点検の道具を足しました。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 6: 機械的な検査、文章の候補抽出、人の判断を分ける。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　06 / 22</p>
+<h2>計算はマクロ、文章はコパイロット</h2>
+<div class="three-column">
+<div class="definition-card">
+<h3>マクロ</h3>
+<p>割合を集計する<br>必須欄の空欄を探す</p>
+</div>
+<div class="definition-card">
+<h3>コパイロット</h3>
+<p>概要・目標を読む<br>備考の説明も考慮する</p>
+</div>
+<div class="definition-card">
+<h3>職員・担当教員</h3>
+<p>原文と理由を確かめる<br>照会・修正を判断する</p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>得意な仕事を分け、最後は人が確かめる。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_06.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+割合の合計や空欄の検査は、条件が決まっています。ここは、毎回同じルールで動くマクロに任せます。一方、二つの文が食い違っているか、別科目の文章が混ざっていないかは、文章の意味を読む必要があります。ここをコパイロットに担当してもらいます。
+<p>そして、どちらの結果も、職員が根拠を確認して使います。たとえば「合計一致」は配点の合計の話であり、そのシラバス全体を承認したという意味ではありません。役割を分けるからこそ、結果の意味が分かりやすくなります。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 7: マクロ作成の依頼を具体的にする四つの材料を示す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　07 / 22</p>
+<h2>そのマクロも、生成ＡＩと作る</h2>
+<blockquote>
+同じ様式のシラバスを、まとめて点検するマクロを。<br>
+割合・必須欄と、原文付きの文章点検依頼を。<br>
+原本を変えず、日本語の操作と確認例を付けて。
+</blockquote>
+<p class="scope-note">作成依頼の説明用要約。開発当初の逐語記録ではありません。</p>
+<div class="callout primary-message">
+<p><strong>やりたいこと ＋ 見本 ＋ 守る条件 ＋ 欲しい結果</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_07.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+マクロそのものも、生成ＡＩに作成を手伝ってもらえます。今回、私はChatGPT
+Proを使い、品質を重視して作成・検証しました。要求を伝え、教材で動かし、結果を確認し、修正を重ねました。
+<p>コパイロットにも、同じようにコード作成や修正を相談する入口があります。今回と同じ条件で同じ品質が出るかという比較はしていませんが、まず相談し、動く範囲を確かめる価値はあります。皆さんにChatGPT
+Proの契約を勧めることが目的ではありません。</p>
+<p>大事なのは、見本を渡して、入力と出力と守る条件を具体的に説明することです。今日は作成過程そのものの実演は割愛し、使うところを見せます。詳しい指示の例は配布資料に入れてあります。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 8: 生成ＡＩの成果物を、人が確認と改善を重ねて道具にする。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　08 / 22</p>
+<h2>「作れた」を「使える」に変える</h2>
+<div class="three-column">
+<div class="definition-card">
+<h3>動く道具</h3>
+<p>一括点検のプログラム</p>
+</div>
+<div class="definition-card">
+<h3>迷わない操作</h3>
+<p>日本語の案内と使い方</p>
+</div>
+<div class="definition-card">
+<h3>確かめる材料</h3>
+<p>教材・期待結果・確認処理</p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>作る → 動かす → 違いを伝える → 直す</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_08.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+出てくるのは「このようにすればよい」という説明だけではありません。実際のプログラム、その導入手順、確認用のデータまで用意できます。もちろん、その出力を人が確認して使います。
+<p>今回も、最初は英語のファイル名やマクロ名が出てきたので、職員が使いやすいように日本語へ直してもらいました。さらに、実機で未入力の扱いを確認して、プログラムを直しました。生成ＡＩは、最初の作成だけでなく、こうした改良にも使っています。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 9: 二種類の出力と、職員による二つの受け渡しを可視化する。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　09 / 22</p>
+<h2>マクロが、ＡＩへの依頼まで整える</h2>
+<div class="system-flow" role="img" aria-label="同じ様式のシラバスをマクロで一括点検し、点検結果と文章の点検依頼を作る。職員が依頼をコパイロットへ送り、職員が回答を結果へ貼って確認する。">
+<div class="flow-box input">同じ様式のシラバス（複数ファイル・一シート一科目）</div>
+<div class="flow-box macro">↓ マクロ：<strong>シラバスを一括点検</strong></div>
+<div class="flow-branch">↙ 二種類の出力 ↘</div>
+<div class="flow-box result"><strong>点検結果.xlsx</strong><br>割合・記載漏れ</div>
+<div class="flow-box request"><strong>文章の点検依頼（００１）.txt</strong><br>原文 ＋ 点検の指示</div>
+<div class="manual return">↑ 回答を貼り付け・確認<br><strong>職員が操作</strong></div>
+<div class="manual send">↓ 依頼文を送る<br><strong>職員が操作</strong></div>
+<div class="flow-box copilot">← 回答　<strong>コパイロット</strong></div>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_09.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+使うファイルを整理すると、入口はCampusmateから出したシラバス、処理する道具はマクロを入れたエクセルです。出てくるものは二種類あります。一つは、割合や記載漏れを見られる点検結果。もう一つは、コパイロットに渡す、原文と指示が一緒になった文章点検依頼です。
+<p>利用者が科目ごとに文章を抜き出したり、毎回指示を考えたりしなくてよいようにしました。必要なときには依頼文をコパイロットへ渡し、回答を点検結果へ戻します。文章点検を使わない回は、文章の判定は未実施として残ります。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 10: 職員の日常操作と導入担当者の準備を区別する。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　10 / 22</p>
+<h2>使う職員の操作は、四つ</h2>
+<div class="four-column">
+<div class="definition-card">
+<h3>① 選ぶ</h3>
+<p>提出ファイルを<br>まとめて選択</p>
+</div>
+<div class="definition-card">
+<h3>② 見る</h3>
+<p>読み取り記録・<br>割合・記載漏れ</p>
+</div>
+<div class="definition-card">
+<h3>③ 渡す</h3>
+<p>原文付き依頼を<br>コパイロットへ</p>
+</div>
+<div class="definition-card">
+<h3>④ 戻す</h3>
+<p>回答を貼って<br>原文と照合</p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>初回の準備は担当者が。毎回は、この四つ。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_10.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+職員が毎回行う操作は、この四つです。初回の組み込みや、大学の要領に合わせた設定は、導入担当者が準備します。使う方が毎回プログラムを書き換える必要はありません。
+<p>まずは複数のファイルをまとめて選び、結果を見ます。文章の点検も行う場合は、できた依頼文を丸ごとコパイロットに渡します。そして回答を結果表へ戻し、気になる箇所を確認します。では、この流れを実際にやってみます。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 11: 実演前半へ切り替え、見る箇所と戻り先を絞る。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　11 / 22</p>
+<h2>実演①　１６科目をまとめて点検</h2>
+<p class="hero">三つのファイルを、<br>一度に選ぶ。</p>
+<p class="demo-focus">割合の要確認　／　記載漏れ　／　文章の点検依頼</p>
+<p class="scope-note">研修用の架空教材｜日本語版・改訂第三版</p>
+<p class="return-cue">依頼を送ったら → １２「ＡＩ活用は二段構え」へ</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_11.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここから実機でお見せします。今回使うのは、実在の教員の提出物ではなく、研修用の架空シラバスです。三つのファイルに十六科目が入っています。まず割合と記載漏れを確かめ、文章点検の依頼が原文付きで作られるところまで見ます。答えはコパイロットに渡さず、普段の点検と同じ指示で確認します。依頼を送ったら、スライドに戻って二段構えを振り返ります。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 12: 待ち時間に、道具作りと業務利用の二段構えを理解する。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　12 / 22</p>
+<h2>ＡＩ活用は、二段構え</h2>
+<div class="two-column">
+<div class="definition-card">
+<h3>第一段｜道具を作る</h3>
+<p>人が課題と材料を示す<br>↓<br>生成ＡＩが作成を支援<br>↓<br><strong>人が確かめ、改善する</strong></p>
+</div>
+<div class="definition-card">
+<h3>第二段｜道具で仕事をする</h3>
+<p>マクロが材料と指示を整える<br>↓ 職員が渡す<br>コパイロットが候補を出す<br>↓<br><strong>人が原文を確かめる</strong></p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>作るときの工夫が、使うたびに効く。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_12.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここが今回、一番持ち帰っていただきたいところです。生成ＡＩを二回、別の役割で使っています。
+<p>一段目では、道具を作るためにＡＩを使いました。二段目では、その道具が整えた資料と指示を使い、別の仕事をＡＩに頼んでいます。毎回、最初からＡＩと相談し直すのではなく、一度整理したやり方を、何度も使えるようにしています。</p>
+<p>うまくかみ合えば、ＡＩの能力が掛け算で効くと私は考えています。これは、精度が数学的に何倍になるとか、ＡＩを二つつなげれば必ずよくなる、という意味ではありません。作成時の工夫が、利用するたびに効く。資料を整える道具があることで、ＡＩへの依頼もしやすくなる。その相乗効果のことです。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 13: 文章の見せ場と正常例を確認する実演後半へ切り替える。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　13 / 22</p>
+<h2>実演②　文章の食い違いを確かめる</h2>
+<p class="hero">数字と空欄が正常でも、<br>文章はどうでしょう。</p>
+<p class="demo-focus">文献講読　／　情報検索演習<br>正常例：研究入門・学術情報入門</p>
+<p class="return-cue">回答と原文を確かめたら → １４「事前実演の結果」へ</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_13.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+例えば、外国語文献は使わないと書いてあるのに、目標には英語論文を読むと書いてある。二つの記載を並べてもらうと、専門家でなくても「ここはどういう関係でしょうか」と確認できます。
+<p>一方、概要と備考に違いがあっても、今年度だけの例外が説明されているなら、それだけで不備とは限りません。指摘をたくさん出すことより、確認に役立つ結果が返ってくることが大切です。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 14: 事前実演の件数を正しい単位と時点で示す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　14 / 22</p>
+<h2>事前実演で、ここまで確認できた</h2>
+<p class="evidence-label">９月１８日・１６科目の架空教材での確認結果</p>
+<div class="two-column results-grid">
+<div class="definition-card">
+<h3>マクロの点検</h3>
+<table>
+<thead>
+<tr>
+<th>確認事項</th>
+<th style="text-align:right">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>割合の要確認</td>
+<td style="text-align:right"><strong>１０科目</strong></td>
+</tr>
+<tr>
+<td>記載漏れ</td>
+<td style="text-align:right"><strong>２８か所</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="definition-card">
+<h3>コパイロットの文章判定</h3>
+<table>
+<thead>
+<tr>
+<th>判定</th>
+<th style="text-align:right">結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>異常候補</td>
+<td style="text-align:right"><strong>１２科目</strong></td>
+</tr>
+<tr>
+<td>空欄で判定不能</td>
+<td style="text-align:right"><strong>２科目</strong></td>
+</tr>
+<tr>
+<td>指摘なし</td>
+<td style="text-align:right"><strong>２科目</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="scope-note">今回の教材・一回の結果。実務全般の精度や時間削減率ではありません。</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_14.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+事前に実機で試したところ、十六科目のうち、割合の要確認が十科目、記載漏れが二十八か所でした。文章については、仕込んだ異常のある十二科目が異常候補、空欄の二科目が判定不能、正常例の二科目が指摘なしでした。今回の教材の想定と対応しています。
+<p>教材に合わせた一回の結果なので、すべてのシラバスを百パーセント正確に点検できる、ということではありません。それでも、ファイルをまとめて読み、必要な箇所を根拠付きで示す仕組みが実際に動くことは確認できました。</p>
+<p>職員が専門科目の中身を一からすべて判断するのではなく、担当教員へ確認できる形に整理される。ここに一次点検支援としての価値があります。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 15: 日本語の操作と未入力判定の改善を、品質の具体例として示す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　15 / 22</p>
+<h2>使いやすさも、検証も、道具の品質</h2>
+<div class="two-column">
+<div class="definition-card">
+<h3>操作を分かりやすく</h3>
+<p>「シラバスを一括点検」<br>「点検する／点検しない」</p>
+</div>
+<div class="definition-card">
+<h3>判断を分かりやすく</h3>
+<p><strong>未入力</strong> と <strong>合計不足</strong> は違う。<br>実機で気づき、修正する。</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>品質を重視して作成・検証した。改善は続ける。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_15.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今回、使いやすさも大事にしました。英語のマクロ名を並べるのではなく、「シラバスを一括点検」というボタンにしました。職員が使うときに、プログラムの内部用語を知っている必要はありません。
+<p>もう一つ、実機で気づいた点があります。配点をまったく書いていない科目が、最初は合計不足のように表示されました。未入力と、入力はあるが合計が足りない場合は意味が違います。そこで、空欄を先に判定するよう修正し、実機で「未入力」と表示されることを確認しました。</p>
+<p>ＡＩが作ったものを無条件に信用するのでも、間違いが一つあったら全部使えないとするのでもなく、実際の仕事に合うように確かめて直す。その過程も、生成ＡＩが助けてくれます。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 16: 自分が確認できる小さな仕事から、依頼と検証を繰り返す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　16 / 22</p>
+<h2>小さく使うほど、任せ方が見えてくる</h2>
+<div class="flow-line">
+<div class="flow-box">読む<br>まとめる</div><span class="arrow">→</span>
+<div class="flow-box">比べる<br>候補を探す</div><span class="arrow">→</span>
+<div class="flow-box">手順を整える<br>道具にする</div>
+</div>
+<div class="callout primary-message">
+<p><strong>まずは、自分が正しさを確かめられる仕事で。</strong></p>
+</div>
+<p>材料・確認したいこと・欲しい出力を、言葉にする。</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_16.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+いきなり今日のような仕組みを思いつく必要はありません。短い文書の要約、二つの案の比較、案内文の下書きなど、自分が結果を確かめられる仕事から使ってみるとよいと思います。
+<p>何を渡すと役立つ答えが返るのか、どこはＡＩが推測してしまうのか、どういう形式なら業務に戻しやすいのか。そうした経験が増えると、「ここは同じ処理だから道具にできそうだ」「ここは文章を読んでもらうと助かりそうだ」という感覚が育ってきます。</p>
+<p>使った回数だけで上達するというより、結果を確かめて、依頼の仕方を直すことが大切です。業務をよく知る皆さんの気づきが、道具を作る出発点になります。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 17: 他業務への展開を、実績と混同せず応用案として示す。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　17 / 22</p>
+<h2>同じ発想を、ほかの仕事へ</h2>
+<p class="scope-note">これからの応用案。今回実装・検証した機能ではありません。</p>
+<table>
+<thead>
+<tr>
+<th>身近な仕事</th>
+<th>道具で整える</th>
+<th>ＡＩに頼む</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>図書館の案内</td>
+<td>素材・版・順番</td>
+<td>手順の説明</td>
+</tr>
+<tr>
+<td>旅費の確認</td>
+<td>入力・計算・不足欄</td>
+<td>条件の読み合わせ</td>
+</tr>
+<tr>
+<td>会議録</td>
+<td>議題ごとの材料</td>
+<td>決定・担当・期限の候補</td>
+</tr>
+<tr>
+<td>学生向け掲示</td>
+<td>日時・場所・連絡先</td>
+<td>読みやすい案内文</td>
+</tr>
+</tbody>
+</table>
+<div class="callout primary-message">
+<p><strong>「材料を整える」と「意味を読む」を分けて考える。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_17.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今回の発想は、シラバスだけに限りません。図書館のマニュアルなら、画像や素材の整理と、説明文を作る仕事を分けられます。旅費なら、規程と出張条件をそろえ、計算できる部分を計算し、確認すべき条件を整理できます。会議録や学生向けの掲示でも、材料をそろえるところと文章を考えるところを分けられます。
+<p>今日のマクロをそのまま別業務へ使えるという意味ではありません。入力も規則も、それぞれに合わせる必要があります。ただ、「材料を整える道具」と「意味を読むＡＩ」を組み合わせる考え方は共通です。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 18: 中心メッセージを回収し、職員が取れる小さな一歩へつなぐ。 -->
+<div class="slide-body">
+<p class="eyebrow">本編　18 / 22</p>
+<h2>まず一つ、楽にしたい仕事を</h2>
+<p class="hero closing">ＡＩで道具を作り、<br>その道具でＡＩを使う。</p>
+<div class="callout primary-message">
+<p>あなたの担当の <strong>「繰り返し・転記・読み合わせ」</strong> を一つ。</p>
+</div>
+<p>何を渡せるか。何が返れば助かるか。そこから始める。</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_18.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今日は、学務の相談から、エクセル出力に着目し、生成ＡＩで道具を作り、その道具が生成ＡＩへの依頼文まで作る例を紹介しました。
+<p>全員がこのマクロを作れるようになることよりも、「この繰り返しは、もう少し楽にできないか」「この資料があれば、ＡＩに助けてもらえないか」と気づくことが大切だと思います。</p>
+<p>まずは大学が認めたコパイロットで、小さな仕事から試してください。結果を確かめ、役立った使い方を共有していく。その積み重ねで、大学事務の仕事の進め方を少しずつ変えていきましょう。</p>
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 19: 担当業務の材料と欲しい結果を起点に相談する。 -->
+<div class="slide-body">
+<p class="eyebrow">質疑・業務相談　19 / 22</p>
+<h2>質疑・業務相談</h2>
+<p class="hero">どんな材料があり、<br>何が一覧になると助かりますか。</p>
+<div class="three-column">
+<div class="definition-card">
+<h3>材料</h3>
+<p>エクセル・文書・記載要領</p>
+</div>
+<div class="definition-card">
+<h3>困りごと</h3>
+<p>繰り返し・転記・読み合わせ</p>
+</div>
+<div class="definition-card">
+<h3>欲しい結果</h3>
+<p>次の仕事につながる一覧</p>
+</div>
+</div>
+<p class="scope-note">個人情報や実務の機密をそのまま示さず、業務の流れから相談しましょう。</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_19.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここからは皆さんの担当業務について考える時間です。どんな材料があり、毎回どこに手間がかかり、何が一覧になると助かるでしょうか。実際の個人情報や機密をここで見せる必要はありません。仕事の流れを言葉にするところから、道具で処理できること、ＡＩに助けてもらえそうなこと、人が判断することに分けてみましょう。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 20: 導入担当者の準備と検証責任をまとめる。 -->
+<div class="slide-body">
+<p class="eyebrow">必要に応じて開く補足　20 / 22</p>
+<h2>補足｜導入前の確認</h2>
+<div class="three-column">
+<div class="definition-card">
+<h3>対象を決める</h3>
+<p>同じ様式・一シート一科目<br>大学の必須項目を確認</p>
+</div>
+<div class="definition-card">
+<h3>担当者が準備する</h3>
+<p>日本語版・改訂第三版<br>「初回の準備」</p>
+</div>
+<div class="definition-card">
+<h3>動作を確かめる</h3>
+<p>「計算の動作を確認」<br>架空教材で全体を確認</p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>承認済みの配布方法で。保守する担当者も決める。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_20.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+導入前には、対象の様式、必須欄、保守する担当者を決めます。今回のマクロは日本語版・改訂第三版です。導入担当者が初回の準備を行い、計算の動作を確認し、架空教材で受け渡しまで試します。確認処理は四十三項目が実装されていますが、共有資料に全四十三項目の実機合格画面はありません。各端末での導入前確認として扱ってください。詳しい組み込み手順は参考資料にあります。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 21: 確認番号と九列の保持を、回答貼り付けの要点として残す。 -->
+<div class="slide-body">
+<p class="eyebrow">必要に応じて開く補足　21 / 22</p>
+<h2>補足｜回答を戻す際の確認</h2>
+<div class="three-column">
+<div class="definition-card">
+<h3>同じ点検回か</h3>
+<p>件数だけでなく<br>確認番号を照合</p>
+</div>
+<div class="definition-card">
+<h3>九列を保てたか</h3>
+<p>見出しを除きＡ２から<br>空欄を詰めずに貼る</p>
+</div>
+<div class="definition-card">
+<h3>結果が反映したか</h3>
+<p>「全科目一覧」で<br>文章判定と原文を確認</p>
+</div>
+</div><div class="callout primary-message">
+<p><strong>前回の回答を、今回の結果へ貼らない。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_21.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+回答を戻すときは、同じ点検回か、九列の形を保てているか、全科目一覧へ反映したかを順に確かめます。最初は文章点検の結果シートの二行目、一列目から貼ります。原文が空欄でも、その列を残します。件数が同じでも確認番号が違えば別の点検です。九月十八日の回答を当日の新しい点検結果へ流用してはいけません。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 22: 長い手順と完全な指示、事前記録への参照先を明示する。 -->
+<div class="slide-body">
+<p class="eyebrow">必要に応じて開く補足　22 / 22</p>
+<h2>補足｜参考資料の案内</h2>
+<div class="two-column">
+<div class="definition-card">
+<h3>準備・使い方・出典</h3>
+<p>参考資料.md（公開版には含まれません）<br>
+導入手順／二種類の指示全文<br>相談ひな形／公式資料</p>
+</div>
+<div class="definition-card">
+<h3>９月１８日の実回答</h3>
+<p>事前実演の出力記録（公開版には含まれません）<br>
+講師用の保存記録<br>実演不調時の説明にも使用</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>必要なときに開く。本編では、実機と考え方を中心に。</strong></p>
+</div>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_22.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+詳しい導入手順と使い方、道具を作る指示、文章を点検する指示は、参考資料にまとめています。この二種類の指示は役割が違います。もう一つの事前実演の出力記録は、九月十八日に講師が共有した実回答です。新しい回答や当日の結果ではありません。答えを含むので、点検の入力としてコパイロットに渡さないでください。
+</aside>
+            </section>
+
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/menu/menu.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      RevealChalkboard,
+            RevealEmbedTweet,
+            RevealChart,
+        ];
+
+        const plugins =  [...printPlugins,
+        RevealZoom,
+        RevealSearch,
+                RevealMarkdown,
+                RevealMenu,
+                RevealFullscreen,
+                RevealAnything,
+                //RevealAudioSlideshow,
+                //RevealAudioRecorder,
+                RevealCustomControls,
+                // poll
+                // question
+                // seminar
+                Verticator
+                 ]
+
+
+        // Also available as an ES module, see:
+        // https://revealjs.com/initialization/
+        Reveal.initialize({
+            controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: false,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'fade',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 1280,
+            height: 720,
+            margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+
+      chalkboard: { // font-awesome.min.css must be available
+        //src: "chalkboard/chalkboard.json",
+        storage: "chalkboard-demo",
+      },
+
+            customcontrols: {
+                    controls: [
+                            {
+                          id: 'toggle-overview',
+                          title: 'Toggle overview (O)',
+                          icon: '<i class="fa fa-th"></i>',
+                          action: 'Reveal.toggleOverview();'
+                        }
+                        ,
+      {
+        icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      {
+        icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+
+                ]
+            },
+            chart: {
+                    defaults: {
+                        color: 'lightgray', // color of labels
+                        scale: {
+                            beginAtZero: true,
+                            ticks: { stepSize: 1 },
+                            grid: { color: "lightgray" } , // color of grid lines
+                        },
+                    },
+                    line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+                    bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+                    pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+                    radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+            },
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                config: 'TeX-AMS_HTML-full',
+                // pass other options into `MathJax.Hub.Config()`
+                TeX: { Macros: { RR: "{\\bf R}" } }
+                },
+                anything: [
+                {
+        className: "plot",
+        defaults: {width:500, height: 500, grid:true},
+        initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+     },
+     {
+        className: "chart",
+        initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+     },
+     {
+        className: "anything",
+        initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+     },
+                    ],
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins )
+        });
+
+
+
+        // Change chalkboard theme :
+        function changeTheme(input) {
+            var config = {};
+            config.theme = input.value;
+            Reveal.getPlugin("RevealChalkboard").configure(config);
+            input.blur();
+        }
+
+        // // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+        if (window.location.search.match(/print-pdf-now/gi)) {
+            setTimeout(() => {
+                window.print();
+              }, 2500);
+
+    }
+</script>
+
+</body>
+
+</html>

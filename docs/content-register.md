@@ -19,6 +19,7 @@
 - `SRC-INTERNAL-M365-001`
 - `SRC-HUMAN-20260821`
 - `SRC-HUMAN-20260907`
+- `SRC-HUMAN-20260918`
 - `SRC-GOV-001`
 - `SRC-EXCLUDED-001`
 
@@ -59,6 +60,7 @@
 | `TEAM-001` | 役員 | Representative director、company role only | `SRC-LEGAL-001` | `VERIFIED_OFFICIAL` | `APPROVED_FOR_INITIAL_SITE` | 代表取締役 白濵 成希 | University title・affiliationと結合しない | Representative変更時 |
 | `TEAM-002` | 役員 | Director、company role only | `SRC-HUMAN-20260821` | `VERIFIED_OPERATOR` | `APPROVED_FOR_INITIAL_SITE` | 取締役 福田 龍樹 | Appointment date不要。University roleと結合しない | Officer変更時 |
 | `TEAM-003` | 講師 | jimu-dx講演資料の白濵 成希の大学所属・役職・学位 | `SRC-HUMAN-20260907` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | 下関市立大学　データサイエンス学部　教授・博士（工学） | `/jimu-dx/`の講師紹介に限定。会社役職とは区別して表示し、学科名を追加しない。大学によるサービス提供・保証を示唆しない。他ページのacademic title・affiliationの公開判断は変更しない | 所属・役職・学位または掲載scope変更時 |
+| `TEAM-004` | 講師 | シラバス一括点検研修資料の講師氏名・大学所属 | `SRC-HUMAN-20260918` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | 白濵 成希／下関市立大学 データサイエンス学部 | 今回の提供済み資料の公開依頼に基づき、`/m365-copilot-syllabus-checker/`の講師紹介に限定。会社役職と結合せず、新しい役職・学位・大学保証の主張を追加しない | 講師紹介または公開scope変更時 |
 | `SERVICE-000` | Service | Current company-level service status | `SRC-INTERNAL-M365-001`, `SRC-HUMAN-20260821` | `VERIFIED_OPERATOR` | `APPROVED_FOR_INITIAL_SITE` | サービス提供中 | Historicalな4service一律`準備中`はsuperseded済みであり、復元しない | Company-level status変更時 |
 | `SERVICE-001` | Service | AI model、prompt design、運用processの品質・governance・risk評価と改善助言 | `SRC-BIZ-001`, `SRC-HUMAN-20260821` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | HarborGate AI Audit | Individual launch-statusまたはcase-count badgeなし。Certification・guaranteeなし | Scopeまたは提供方法変更時 |
 | `SERVICE-002` | Service | 生成AIの企画・PoCから導入、運用、組織定着までの支援 | `SRC-BIZ-001`, `SRC-HUMAN-20260821` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | HarborGate AI Consulting | Individual launch-statusまたはcase-count badgeなし。成果保証なし | Scopeまたは提供方法変更時 |
@@ -81,6 +83,8 @@
 | `CONTACT-003` | Contact | Future inquiry form | `SRC-HUMAN-20260821` | `VERIFIED_OPERATOR` | `PENDING_HUMAN_CONFIRMATION` | お問い合わせフォームは現在準備中です。 | Endpoint、file upload、third-party service、intentional data storage、analyticsなし。機密情報を送信しないよう案内する | Form、privacy、security、operation承認時 |
 | `RESEARCH-001` | Research | Research achievements | `SRC-BIZ-001` | `SUPPORTED_WORKING_SOURCE` | `DEFERRED` | 公開文言なし | Award、paper title、conference、publication、researchmap linkをitemごとにverifyする | Dedicated verificationとpublication approval時 |
 | `PUBLICATION-001` | 講演資料 | 事務DXと生成AIのはじめ方 | `SRC-HUMAN-20260907` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | 事務DXと生成AIのはじめ方 | `/jimu-dx/`で承認済み講演資料・画像・21音声を公開する。大学所属表記は`TEAM-003`、Audit説明は`AUDIT-001`を適用する。会社サービスは`SERVICE-001`から`SERVICE-005`の範囲内とし、新規contact機能を追加しない | 講演内容・asset・公開scope変更時 |
+| `PUBLICATION-002` | 研修資料 | Teamsを、議事録サポーターに。 | `SRC-HUMAN-20260918` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | 大学事務のための生成ＡＩ／Microsoft 365 Copilot 実践編／Teamsを、議事録サポーターに。 | 指定された提供済み資料を`/m365-copilot-meeting-minutes/`で公開する。24スライド・講師ノート・24音声と表示用assetが対象。本文・音声を保持し、導入提案を検証済み実績や効果保証へ変更しない。内部原資料・新規contact機能を追加しない | 研修内容・asset・公開scope変更時 |
+| `PUBLICATION-003` | 研修資料 | シラバス一括点検から考える、仕事の変え方 | `SRC-HUMAN-20260918` | `VERIFIED_OPERATOR` | `APPROVED_WITH_CONDITIONS` | 大学事務のための生成ＡＩ／Microsoft 365 Copilot 実践編／シラバス一括点検から考える、仕事の変え方 | 指定された提供済み資料を`/m365-copilot-syllabus-checker/`で公開する。22スライド・講師ノート・22音声と表示用assetが対象。本文・音声を保持し、講師所属は`TEAM-004`に限定。架空の研修教材と実際の業務資料の区別を保持する。公開対象外の補足資料2件は名称と未収録の案内を残し、到達不能なlinkを外す。内部原資料・新規contact機能を追加しない | 研修内容・asset・公開scope変更時 |
 | `SOURCE-EXCLUSION-001` | Source exclusion | Unrelated 2025 press release | `SRC-EXCLUDED-001` | `EXCLUDED` | `EXCLUDED` | 公開文言なし | HarborGateのidentity、founding sequence、first-company status、capital、representative、business activity、university relationshipの根拠にしない。`創立以来初`・`第1号企業`を別途確認なく使用しない | HarborGate固有のauthoritative evidence提示時 |
 
 ## 7. 未解決事項
@@ -88,7 +92,7 @@
 - 認定に付すqualifierは公式文書とhuman confirmationが不一致であり、authorityによる解決まで公開しない。
 - Rawまたはeditableな大学logo sourceのpublic repository保管可否はhuman confirmation待ち。
 - Future inquiry formはdestination、privacy、security、operationの承認待ち。
-- Detailed case、academic title・affiliation、research achievementは個別reviewまで延期する。ただし、`TEAM-003`の`/jimu-dx/`限定承認を除く。
+- Detailed case、academic title・affiliation、research achievementは個別reviewまで延期する。ただし、`TEAM-003`の`/jimu-dx/`限定承認と`TEAM-004`の`/m365-copilot-syllabus-checker/`限定承認を除く。
 
 ## 8. 変更履歴
 
@@ -96,3 +100,4 @@
 |---|---|---|
 | 2026-08-21 | Six-document draftをcurrent public-safe decisionsに合わせて改訂 | `SRC-HUMAN-20260821` |
 | 2026-09-07 | `/jimu-dx/`講演資料の公開承認と講師所属・役職・学位のexact wordingを記録。Audit必須全文を適用 | `SRC-HUMAN-20260907` |
+| 2026-09-18 | 提供済みMicrosoft 365 Copilot研修資料2件の指定URL配下への公開依頼を記録。講師紹介の限定scope、本文・ノート・音声の保持条件を追加 | `SRC-HUMAN-20260918` |

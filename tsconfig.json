@@ -1,5 +1,5 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "public/jimu-dx"]
+  "exclude": ["dist", "public/jimu-dx", "public/m365-copilot-meeting-minutes", "public/m365-copilot-syllabus-checker"]
 }
