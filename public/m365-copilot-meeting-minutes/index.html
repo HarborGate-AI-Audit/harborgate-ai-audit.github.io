@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>大学事務のための生成ＡＩ｜Teamsを、議事録サポーターに。</title>
+
+  <meta name="description" content="Microsoft 365 Copilot 実践編。Teamsで記録を残し、Copilotで下書きを作り、人が確認して確定する議事録づくりを紹介します。">
+  <link rel="canonical" href="https://www.hg.ai-audit.co.jp/m365-copilot-meeting-minutes/">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reset.css">
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/reveal.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- highlight Theme -->
+
+  <link rel="stylesheet" href="libs/highlight.js/11.3.1/styles/monokai.min.css">
+
+
+
+    <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/chalkboard/style.css">
+
+
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/plugin/customcontrols/style.css">
+
+
+
+
+
+  <!-- Revealjs Theme -->
+
+  <link rel="stylesheet" href="libs/reveal.js/4.3.1/theme/white.css" id="theme">
+
+
+
+  <link rel="stylesheet" href="libs/styles/tasklist.css">
+    <link rel="stylesheet" href="libs/styles/iota.css">
+    <link rel="stylesheet" href="libs/styles/layout.css">
+
+
+  <!-- Revealjs Theme -->
+
+
+   <!-- css list -->
+
+  <link rel="stylesheet" href="style.css">
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+
+
+
+
+        <section >
+
+            <!-- 1: 大学事務のための生成ＡＩ -->
+<div class="slide-body title-slide">
+<p class="eyebrow">本編　01 / 24</p>
+<h2>大学事務のための生成ＡＩ</h2>
+<p class="subtitle">Microsoft 365 Copilot 実践編</p>
+<p class="hero title-hero">Teamsを、<br>議事録サポーターに。</p>
+<p class="lead">ＡＩで道具を作り、その道具でＡＩを使う</p>
+<p class="presenter">白濵 成希</p>
+<p class="date">２０２６年９月２４日｜大学事務職員向け研修</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_01.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今日は、対面会議の議事録づくりを、いつもの道具で少し楽にする方法を考えます。Teamsで記録を残し、コパイロットで下書きを作り、人が確認して確定する流れです。
+中心に置くのは、ＡＩで道具を作り、その道具でＡＩを使うという考え方です。今回は、繰り返し使える手順、依頼文、確認表を道具として考えます。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 2: 白紙から書く負担を減らしたい -->
+<div class="slide-body">
+<p class="eyebrow">本編　02 / 24</p>
+<h2>白紙から書く負担を減らしたい</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>思い出す</h3>
+<p>メモをたどり<br>発言を拾う</p>
+</div>
+<div class="definition-card">
+<h3>書き直す</h3>
+<p>議題ごとに整理し<br>いつもの様式へ</p>
+</div>
+<div class="definition-card">
+<h3>確かめる</h3>
+<p>決定・条件・期限を<br>原文に戻って確認</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>「書き始める」負担を減らし、「確かめる」に力を使う。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §1・3・10</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_02.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+会議が終わったあと、メモをたどり、何が決まったかを思い出し、議題ごとに文章を組み立てる。会議録づくりには、いくつもの仕事が重なっています。私が変えていきたいのは、そのすべてを白紙から人が引き受ける進め方です。
+記録が残っていれば、記憶に頼る部分を減らせます。下書きがあれば、構成を最初から考える負担も減らせるかもしれません。その分、会議の結論や条件を確かめる仕事に力を使いたいと考えます。
+今日は削減率をお約束する講演ではありません。自分の担当ならどこが楽になりそうか、どこは自分で確かめたいかを考えながら聞いてください。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 3: まずは本学のコパイロットから -->
+<div class="slide-body">
+<p class="eyebrow">本編　03 / 24</p>
+<h2>まずは本学のコパイロットから</h2>
+<p class="hero">すでに使える環境を、<br>仕事の助けにする。</p>
+<div class="callout primary-message">
+<p><strong>大学が認めたアカウントで、認められた資料を使う。</strong></p>
+</div>
+<p class="scope-note">今回の入口は、学校用のチャットへの資料提供です。</p>
+<p class="source-note">出典：制作指示／提案書 §4・8／公式資料 S1・S2</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_03.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+本学にはコパイロットを使える環境があります。まずは大学が認めた環境から、小さく活用してみたいと思います。今回の案では、学校用のチャットに担当者が必要な資料を渡し、下書きを頼む使い方を入口にします。
+会議中のコパイロットや、文書の中で動く機能まで、全員が同じ条件で使えると考える必要はありません。自分のアカウントで使えることと、その資料を入れてよいことを確かめます。
+新しい道具をいくつも覚える前に、手元の環境でできることを探す。総務からの相談にも、この考え方で向き合いました。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 4: 総務から「議事録づくり」の相談 -->
+<div class="slide-body">
+<p class="eyebrow">本編　04 / 24</p>
+<h2>総務から「議事録づくり」の相談</h2>
+<p class="hero">ＡＩ議事録システムで、<br>会議後の負担を減らせないか。</p>
+<div class="callout primary-message">
+<p><strong>記録・下書き・確認に分けると、使える道具が見えてくる。</strong></p>
+</div>
+<p class="scope-note">本日は、既存Microsoft 365を活用する導入案を紹介します。</p>
+<p class="source-note">出典：提案書 §1–3</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_04.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+総務から、ＡＩの議事録システムを導入すれば、会議録作成の負担を減らせるのではないかという相談がありました。専用のサービスを検討する前に、仕事を分けて考えてみます。発言を残すこと、文章にまとめること、正式な内容として確認することです。
+このうち記録を残すところにはTeamsが使えそうです。文章を整理するところにはコパイロットがあります。そして確認と承認は従来の担当者が担います。
+ここで紹介するのは導入検討の提案です。本学の会議室で動作や品質を確かめ終わったシステムではありません。その区別をしたうえで、使い方の見通しをお話しします。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 5: 対面会議のまま、Teamsを再活用 -->
+<div class="slide-body">
+<p class="eyebrow">本編　05 / 24</p>
+<h2>対面会議のまま、Teamsを再活用</h2>
+<div class="cards two">
+<div class="definition-card">
+<h3>コロナ禍の使い方</h3>
+<p>離れた場所から<br>会議に参加する</p>
+</div>
+<div class="definition-card">
+<h3>今回の使い方</h3>
+<p>会議室の声を残し<br>あとで確認する</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>担当者がTeamsに接続。会議の進め方はそのまま。</strong></p>
+</div>
+<p class="scope-note">使った経験のある道具から、試しやすくする。</p>
+<p class="source-note">出典：提案書 §1–3・5</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_05.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+コロナ禍には、本学でもTeamsを使ってリモート会議をしていました。今は対面が中心でも、その道具と経験を生かせないでしょうか。今回の案は、会議をオンラインへ戻すものではありません。会議室の担当者がパソコンからTeams会議に入り、記録を残す役割を持たせます。
+全員にパソコンを開いてもらう必要が少なく、担当者は使った経験のある道具から始められます。心理的な抵抗を和らげるための工夫です。実際に抵抗感が何割減ったという測定結果ではありません。
+Teamsを起動しておけば自動で記録されるわけではないので、記録と文字起こしを始め、保存できたところまで担当者が確認します。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 6: 記録・下書き・承認をつなぐ -->
+<div class="slide-body">
+<p class="eyebrow">本編　06 / 24</p>
+<h2>記録・下書き・承認をつなぐ</h2>
+<div class="handoff" role="img" aria-label="Teamsで記録し、職員が資料を渡してコパイロットで案を作り、職員が案を貼り付けて確認し承認する">
+<div class="flow-box">Teams<br><span>音声・文字起こし</span></div>
+<div class="human">↓ 職員が操作：資料を選んで渡す</div>
+<div class="flow-box accent">コパイロット<br><span>会議録案・確認表</span></div>
+<div class="human">↓ 職員が操作：案を貼り付け、原文と照合</div>
+<div class="flow-box">所定の承認 → 正式な会議録</div>
+</div>
+<p class="source-note">出典：提案書 §2・5・6／公式資料 S3</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_06.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+全体はこの流れです。まずTeamsで音声と文字起こしを残します。会議後、担当者が文字起こしを取り出し、必要な会議資料と一緒にコパイロットへ渡します。この矢印は、職員が操作する部分です。
+コパイロットには、会議録の案と確認表を作ってもらいます。職員が回答を作業用の文書へ貼り付け、原文や必要な箇所の音声と照合して修正します。その後、従来どおり議長などの承認を経て正式な会議録にします。
+文字起こしを取り出した瞬間に正式な議事録ができたり、回答が自動で配付されたりする仕組みではありません。担当者が材料を選び、担当者が案を戻して確認する。このつなぎ方が、まず始めやすい構成です。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 7: いつもの資料が、下書きの材料になる -->
+<div class="slide-body">
+<p class="eyebrow">本編　07 / 24</p>
+<h2>いつもの資料が、下書きの材料になる</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>文字起こし</h3>
+<p>何が話され<br>何が決まったか</p>
+</div>
+<div class="definition-card">
+<h3>次第・配付資料</h3>
+<p>何について<br>話しているか</p>
+</div>
+<div class="definition-card">
+<h3>いつもの様式</h3>
+<p>どんな見出しと<br>文体でまとめるか</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>資料の「予定」と、会議の「決定」を混ぜない。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §6</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_07.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+コパイロットへ渡す材料は、文字起こしだけとは限りません。議題が分かる次第、正式名称が分かる配付資料、いつもの会議録様式も役立ちます。すでにある文書を、新しい作業の材料として生かします。
+ただし、役割を混ぜないことが大切です。文字起こしは何が話されたかの根拠、配付資料は議案を理解する補助、様式はどう書くかの指定です。配付資料に十月一日開始予定と書いてあっても、会議で開始日は次回決定となれば、結論は次回決定です。
+前回の会議録を使う場合も、今回の事実をそこから補わせません。担当者が確認した訂正があれば、どの発言の訂正かが分かる補正メモとして添えます。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 8: 安心して使える範囲を決める -->
+<div class="slide-body">
+<p class="eyebrow">本編　08 / 24</p>
+<h2>安心して使える範囲を決める</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>説明する</h3>
+<p>録音とＡＩ利用の目的<br>参加者に伝える</p>
+</div>
+<div class="definition-card">
+<h3>共有先を絞る</h3>
+<p>誰が閲覧するか<br>いつまで保存するか</p>
+</div>
+<div class="definition-card">
+<h3>学校用で使う</h3>
+<p>許可された資料だけ<br>認められた環境へ</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>学習に使われないことと、記録が残らないことは別。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §7.4・8／公式資料 S1・S6</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_08.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+使い慣れた環境のよさを生かすためにも、扱う範囲を決めます。会議の参加者には、記録を残す目的とＡＩで下書きに使うことを説明します。対面の方はTeamsに接続していないので、アプリの通知だけで説明を済ませないようにします。
+学校用の対象サービスでは、入力と応答を基盤モデルの学習に使わないと説明されています。ただし会話の記録は保存されます。記録の閲覧者や保存期間を決め、学内で認められた情報だけを扱います。人事や学生相談など、機微な情報を含む会議は、取り扱いが整理されるまで最初の対象にしません。
+また、外部検索が有効なら入力から作られた検索語が送られる場合があります。外部情報を使わないよう依頼することと、設定で検索を制限することは別です。必要な扱いは学内の設定とルールで確認します。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 9: 実現できる仕組みと、現場の確認 -->
+<div class="slide-body">
+<p class="eyebrow">本編　09 / 24</p>
+<h2>実現できる仕組みと、現場の確認</h2>
+<div class="cards two">
+<div class="definition-card">
+<h3>公開資料で確認</h3>
+<p>日本語の文字起こし<br>会議後の取得・保存</p>
+</div>
+<div class="definition-card">
+<h3>本学で確かめる</h3>
+<p>利用権・設定<br>収音・案の品質</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>仕組みの見通しはある。まず本学の環境で試す。</strong></p>
+</div>
+<p class="scope-note">既存契約・機器・容量の範囲で検討。無条件の費用ゼロではありません。</p>
+<p class="source-note">出典：提案書 §3–4／公式資料 S2・S3・S6・S7</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_09.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+公開資料では、日本語の文字起こしや、会議後に取り出す方法が案内されています。記録を取得してコパイロットへ渡す、という仕組みには見通しがあります。
+一方で、本学のアカウントで記録と取得ができるか、会議室の複数の人の声が入るか、できた案を直す作業が楽かは、実際の環境で確かめる必要があります。今回の提案書は、そこまで実証した報告書ではありません。
+既存の契約、機器、保存容量の範囲で始めることを考えていますが、職員の作業や保存容量までゼロにはなりません。追加契約が要らないかも、現在の利用権と設定の確認が前提です。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 10: 一台で録るなら、全員の声を確認 -->
+<div class="slide-body">
+<p class="eyebrow">本編　10 / 24</p>
+<h2>一台で録るなら、全員の声を確認</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>始まっているか</h3>
+<p>記録と日本語の<br>文字起こしを見る</p>
+</div>
+<div class="definition-card">
+<h3>周囲の声も入るか</h3>
+<p>「音声の分離」はオフ<br>担当者以外の声で試す</p>
+</div>
+<div class="definition-card">
+<h3>名前を決めつけない</h3>
+<p>接続者名を<br>発言者名にしない</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>会議の最後に、決定・担当・期限を短く復唱する。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §5・7／公式資料 S3・S5</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_10.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+一台のパソコンとマイクで記録する場合、確認したいのは担当者の声だけでなく、ほかの方の声も入るかです。音声の分離は、登録した本人の声を残して周囲の声を除く機能なので、今回の収録ではオフにします。マイクの位置や機器独自の設定も含めて、実際の声で確かめます。
+会議に入っただけ、字幕が見えているだけで安心せず、記録が始まり、日本語の文字起こしが増えていることを見ます。また、一台の接続者名が表示されても、全部その人の発言として扱いません。誰が話したか不明なところは推測させないようにします。
+もう一つ、会議の進め方も助けになります。議題の終わりに、何が決まり、誰が、いつまでに対応するかを短く復唱する。これはＡＩのためだけでなく、参加者の認識をそろえる工夫です。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 11: コパイロットは、身近な仕事の補助役 -->
+<div class="slide-body">
+<p class="eyebrow">本編　11 / 24</p>
+<h2>コパイロットは、身近な仕事の補助役</h2>
+<div class="cards two">
+<div class="definition-card">
+<h3>まず使う入口</h3>
+<p>学校用のチャット<br>資料を渡して相談</p>
+</div>
+<div class="definition-card">
+<h3>広がる使い方</h3>
+<p>Word・Excel・Teamsで<br>日常の作業を補助</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>全部を覚えず、使える入口を一つ選ぶ。</strong></p>
+</div>
+<p class="scope-note">同じ名前の仲間でも、使える機能は契約・設定で異なります。</p>
+<p class="source-note">出典：提案書 §4・6／公式資料 S1・S2・S4</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_11.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+コパイロットの名前をいろいろな場所で見ると、何を使えばよいのか迷うかもしれません。チャットで相談する入口も、文書や表、会議の中で助ける入口もあります。いつもの仕事のそばにいる補助役の仲間と考えてみてください。
+全部を一度に覚える必要はありません。今回は学校用チャットへ必要な資料を渡す方法を選びます。Teams会議内のコパイロットと、会議後にチャットへ渡す方法は、利用条件も役割も同じではありません。
+新しい機能を追いかけるより、自分の仕事で確かめながら使える入口を一つ持つ。その入口で、次は繰り返し使える依頼文を考えます。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 12: ＡＩで、次回も使える道具を作る -->
+<div class="slide-body">
+<p class="eyebrow">本編　12 / 24</p>
+<h2>ＡＩで、次回も使える道具を作る</h2>
+<div class="cards two">
+<div class="definition-card">
+<h3>道具を作る</h3>
+<p>手順・依頼文・確認表を<br>ＡＩと相談して整える</p>
+</div>
+<div class="definition-card">
+<h3>道具でＡＩを使う</h3>
+<p>決めた材料と依頼文で<br>次の会議録案を作る</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>職員が確かめて直し、繰り返し使える形へ。</strong></p>
+</div>
+<p class="scope-note">今回の「道具」は手順と文書。新しいシステム開発は前提にしません。</p>
+<p class="source-note">出典：制作指示／提案書 §2・6・付録B／活用方法の提案</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_12.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここで、今日の中心メッセージに戻ります。ＡＩで道具を作り、その道具でＡＩを使う。今回の道具は、新しいプログラムではなく、会議録を作る手順、繰り返し使える依頼文、確認表です。
+例えば、自分たちの様式と確認したい点を示して、毎回使える依頼文を整理する相談をＡＩにできます。その文面を職員が確かめて直し、次の会議では、決めた材料と一緒にコパイロットへ渡します。毎回、何を頼めばよいかを考え直す負担を減らすわけです。
+提案書の付録には、会議録案と確認表を作る依頼文がすでにあります。これを出発点に、実際の様式と結果を見ながら改善していく考え方です。この提案書自体をどのＡＩで作ったかという開発実績を示しているのではありません。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 13: 実演で見るのは、決定の扱い -->
+<div class="slide-body">
+<p class="eyebrow">本編　13 / 24</p>
+<h2>実演で見るのは、決定の扱い</h2>
+<p class="hero">資料には「10月1日開始予定」。<br>会議では「開始日は次回決定」。</p>
+<div class="callout primary-message">
+<p><strong>会議録案は、どちらを結論にするでしょうか。</strong></p>
+</div>
+<p class="scope-note">ここからは架空の会議教材。実際の会議の録音・文字起こしではありません。</p>
+<p class="source-note">出典：提案書 §6の説明を基にした新規架空教材</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_13.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここからは、短い架空の会議を材料にして、下書きと確認の流れを見ます。実際の学内会議の録音や文字起こしではありません。実在の参加者や個人情報も使いません。
+配付資料には十月一日開始予定とあります。しかし会議では開始日は次回決定となっています。これが案にどう書かれるかに注目してください。文章がきれいかどうかより、予定と決定が混ざっていないかを見ます。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 14: 実演①　材料と依頼文を渡す -->
+<div class="slide-body">
+<p class="eyebrow">本編　14 / 24</p>
+<h2>実演①　材料と依頼文を渡す</h2>
+<div class="flow" role="img" aria-label="会議の材料、次に職員が操作&lt;br&gt;チャットへ渡す、次に会議録案&lt;br&gt;＋確認表"><div class="flow-box">会議の材料</div><span class="arrow">→</span><div class="flow-box">職員が操作<br>チャットへ渡す</div><span class="arrow">→</span><div class="flow-box">会議録案<br>＋確認表</div></div>
+<div class="callout primary-message">
+<p><strong>「会議での発言」と「配付資料」を分けて渡す。</strong></p>
+</div>
+<p class="scope-note">架空教材で実演｜回答の待ち時間には、人が確かめる箇所を考える。</p>
+<p class="source-note">出典：提案書 付録Bを基にした実演／入力は架空教材</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_14.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+最初に材料を見ます。会議情報、次第、発言番号を付けた架空の記録、配付資料、会議録様式があります。実務ではTeamsから取り出した文字起こしを使いますが、ここでは短い教材で流れを確かめます。
+次に依頼文です。会議録案と担当者用の確認表を分けること、発言を根拠にすること、資料の予定を決定にしないことを指定しています。発言者の名前や、書かれていない担当・期限を推測しないことも含めます。
+職員が必要な材料を選び、学校用のチャットへ渡します。今回は私が操作します。回答が出るまでの間、皆さんなら案のどこを原文で確かめるかを考えてください。開始日だけでなく、承認に付いた条件と、担当と期限にも注目してみましょう。
+長い依頼文を毎回一から書く必要はありません。まず使える形を整えておき、会議ごとの材料を入れ替える。これが、道具でＡＩを使う部分です。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 15: 実演②　回答を戻し、原文と照合 -->
+<div class="slide-body">
+<p class="eyebrow">本編　15 / 24</p>
+<h2>実演②　回答を戻し、原文と照合</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>条件が残ったか</h3>
+<p>無条件の承認に<br>変わっていないか</p>
+</div>
+<div class="definition-card">
+<h3>開始日は正しいか</h3>
+<p>資料の予定を<br>決定にしていないか</p>
+</div>
+<div class="definition-card">
+<h3>担当・期限はあるか</h3>
+<p>原文にある範囲で<br>記載されているか</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>職員が操作：案を作業用文書へ貼り付け、確認する。</strong></p>
+</div>
+<p class="scope-note">回答と根拠を並べる。確認できない内容は「要確認」のまま。</p>
+<p class="source-note">出典：提案書 §5.5・6・8.3／架空教材の照合</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_15.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+回答が出たら、まず会議録案と確認表が分かれているかを見ます。次に、案を作業用の文書へ貼り付けます。ここも職員が行う操作です。まだ正式な会議録ではありません。
+教材の発言記録に戻ります。案内の変更は、修正と確認を条件とした承認です。開始日は次回決定です。総務が九月三十日までに文面を修正する、という担当と期限は原文にあります。それぞれが案に残っているか、根拠の発言番号と合わせて確認します。
+もし、十月一日に実施決定と書かれていたら、原文の結論を根拠に直します。分からない発言者名が入っていたら、その推測も外します。ＡＩへ再点検を頼む方法もありますが、最後は担当者が原文と照合します。
+今日の回答が期待どおりでも、ほかの会議の正確さまで確認したことにはなりません。実務では、必要な確認と所定の承認を経て初めて確定します。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 16: できたことと、これから確かめること -->
+<div class="slide-body">
+<p class="eyebrow">本編　16 / 24</p>
+<h2>できたことと、これから確かめること</h2>
+<div class="cards two">
+<div class="definition-card">
+<h3>今回扱ったこと</h3>
+<p>資料 → 案 → 原文照合<br>役割分担の確認</p>
+</div>
+<div class="definition-card">
+<h3>これから確かめること</h3>
+<p>本学での記録・収音<br>実会議の品質と負担</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>画面で案ができることと、実務で使えることを分ける。</strong></p>
+</div>
+<p class="scope-note">実演を切り替えた場合は、説明用教材で確認した範囲として振り返ります。</p>
+<p class="source-note">出典：提案書 §3・9／当日の実演状況に応じた振り返り</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_16.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここで、できたことと、これから確かめることを分けて振り返ります。今回扱ったのは、材料をそろえ、案を作り、原文に戻って確認するという仕事の流れです。通信などの都合で比較教材に切り替えた場合は、その教材で考えた範囲の振り返りになります。
+本学の実際の会議室でTeamsが全員の声を拾えるか、会議後に記録を取得できるか、実会議の案が使いやすいかは、これから確かめることです。まだ実績や時間削減率としては示せません。
+案が出たことだけを成果にせず、確認と修正まで含めて使えるかを見る。この視点で、小さく試す計画を立てます。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 17: 直した箇所を、次回の道具に戻す -->
+<div class="slide-body">
+<p class="eyebrow">本編　17 / 24</p>
+<h2>直した箇所を、次回の道具に戻す</h2>
+<div class="flow" role="img" aria-label="案を使ってみる、次に直す箇所を残す、次に依頼文・手順を直す"><div class="flow-box">案を使ってみる</div><span class="arrow">→</span><div class="flow-box">直す箇所を残す</div><span class="arrow">→</span><div class="flow-box">依頼文・手順を直す</div></div>
+<div class="callout primary-message">
+<p><strong>確認にかかった時間も含めて、楽になったかを見る。</strong></p>
+</div>
+<p class="scope-note">条件の抜け・誤認識・探しにくさを、一つずつ改善する。</p>
+<p class="source-note">出典：提案書 §5.3・9.2／改善方法の提案</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_17.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+実際に使ったら、どこを直したかを残します。例えば承認条件が抜けたなら、条件を落とさない指示が伝わっていたか、記録のどこに条件があるかを見ます。固有名詞の誤認識なら、確認済み補正メモの付け方や、元の収音も見直します。
+すべての問題を依頼文だけで解決しようとしないことも大切です。マイク、会議での結論の言い方、材料の準備、様式など、直せる場所はいくつかあります。
+次回も同じところで困らないように、手順と依頼文と確認表へ改善を戻します。案が出るまでの速さだけでなく、確認して直すところまで含めて負担が減ったかを確かめます。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 18: 同じ考え方を、ほかの文章業務へ -->
+<div class="slide-body">
+<p class="eyebrow">本編　18 / 24</p>
+<h2>同じ考え方を、ほかの文章業務へ</h2>
+<table>
+<thead>
+<tr>
+<th>身近な仕事</th>
+<th>そろえる材料</th>
+<th>ＡＩに頼む下書き</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>会議後の周知</td>
+<td>承認済みの決定・対象者</td>
+<td>伝わりやすい案内文</td>
+</tr>
+<tr>
+<td>引継ぎ</td>
+<td>手順・担当・注意点</td>
+<td>引継ぎ文書の構成</td>
+</tr>
+<tr>
+<td>よくある質問</td>
+<td>確認済みの説明・回答</td>
+<td>読みやすい問答集</td>
+</tr>
+</tbody>
+</table>
+<div class="callout primary-message">
+<p><strong>材料をそろえる → 下書きを頼む → 人が確かめる。</strong></p>
+</div>
+<p class="scope-note">これからの応用案。今回の導入実績ではありません。</p>
+<p class="source-note">出典：制作指示の他業務展開に沿った応用案</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_18.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+この考え方は、議事録以外にも使えそうです。例えば承認済みの決定を対象者へ知らせる案内文、仕事の手順をまとめた引継ぎ、確認済みの回答を整理する問答集です。
+共通するのは、根拠になる材料をそろえること、欲しい形を示すこと、返ってきた文を人が確かめることです。会議録案をそのまま外へ出すのではなく、確定した内容を次の材料にします。
+これらは今後の応用案で、今回実装や検証を済ませたという意味ではありません。皆さんの担当で、毎回同じように文章を組み立てている仕事があれば、次の候補になると思います。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 19: 最初の一回を、小さく決める -->
+<div class="slide-body">
+<p class="eyebrow">本編　19 / 24</p>
+<h2>最初の一回を、小さく決める</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>対象</h3>
+<p>利用が認められた<br>小さな会議を一つ</p>
+</div>
+<div class="definition-card">
+<h3>担当</h3>
+<p>記録・確認・承認を<br>誰が行うか</p>
+</div>
+<div class="definition-card">
+<h3>比べること</h3>
+<p>下書きの作りやすさ<br>修正の負担</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>従来のメモを残し、使って確かめる。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §9</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_19.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+最初の一回は、対象を小さく決めます。録音とＡＩへの入力が認められ、機微性が低く、担当者が内容を確かめやすい会議を選びます。誰がTeamsを操作し、誰が案を確認し、誰が承認するかも決めます。
+初めから今までのメモをやめる必要はありません。従来の補助メモを残したうえで、下書きから直す方が作りやすいか、重要な誤りに気づけるか、操作が新しい負担になりすぎないかを見ます。
+ここで少し、ご自分の担当の会議を一つ思い浮かべてください。どの作業が楽になると助かるでしょうか。その一つを出発点に、必要な条件を情報担当部署や会議の所管部署と確かめるのが次の一歩です。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 20: いつもの道具で、仕事の進め方を変える -->
+<div class="slide-body">
+<p class="eyebrow">本編　20 / 24</p>
+<h2>いつもの道具で、仕事の進め方を変える</h2>
+<p class="hero">ＡＩで道具を作り、<br>その道具でＡＩを使う。</p>
+<div class="callout primary-message">
+<p><strong>記録を残す。案を作る。人が確かめる。</strong></p>
+</div>
+<p class="lead">まずは、自分の仕事で確かめられる一回から。</p>
+<p class="source-note">出典：制作指示／提案書 §10</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_20.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+今日は、総務の議事録相談を出発点に、Teamsを議事録サポーターとして再活用する案を紹介しました。記録を残し、いつもの資料と様式を添え、コパイロットで案を作り、人が確かめる。使った経験のある道具を組み合わせる考え方です。
+ＡＩで、繰り返し使える手順や依頼文を整える。その道具で、次の会議のＡＩ利用を楽にする。毎回の確認と改善を、次の仕事へ残していきます。
+まずは自分の仕事で確かめられる小さな一回から。ここからは、皆さんの会議や文章業務に当てはめて考えていきましょう。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 21: 質疑・業務相談 -->
+<div class="slide-body">
+<p class="eyebrow">質疑・業務相談　21 / 24</p>
+<h2>質疑・業務相談</h2>
+<p class="hero">どの会議で、<br>何を書く負担を減らしたいですか。</p>
+<div class="cards three">
+<div class="definition-card">
+<h3>材料</h3>
+<p>記録・次第・様式</p>
+</div>
+<div class="definition-card">
+<h3>困りごと</h3>
+<p>思い出す・まとめ直す</p>
+</div>
+<div class="definition-card">
+<h3>欲しい結果</h3>
+<p>次の作業に使える案</p>
+</div>
+</div>
+<p class="scope-note">個人情報や機密の内容を出さず、仕事の流れから相談しましょう。</p>
+<p class="source-note">出典：制作指示</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_21.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+ここからは皆さんの担当業務について考える時間です。どの会議で、何を書くところに負担があるでしょうか。どんな材料と様式があり、どんな案が返れば助かるかをお聞かせください。
+実際の個人情報や機密の内容をここで示す必要はありません。仕事の流れを言葉にするところから、記録に任せること、ＡＩに下書きを頼むこと、人が確かめることを一緒に分けてみましょう。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 22: 補足｜記録の前後で確認すること -->
+<div class="slide-body">
+<p class="eyebrow">補足　22 / 24</p>
+<h2>補足｜記録の前後で確認すること</h2>
+<table>
+<thead>
+<tr>
+<th>いつ</th>
+<th>確認すること</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>始める前</td>
+<td>参加者への説明・利用権・閲覧範囲</td>
+</tr>
+<tr>
+<td>始めた直後</td>
+<td>記録開始・日本語文字起こし・ほかの人の声</td>
+</tr>
+<tr>
+<td>終わったら</td>
+<td>停止・保存・取得・保存期間</td>
+</tr>
+</tbody>
+</table>
+<div class="callout primary-message">
+<p><strong>Teamsの主催者は、会議を作成するアカウント。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §5・付録A／公式資料 S3・S7</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_22.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+記録の前には、録音とＡＩ利用が認められた会議か、参加者への説明と保存の扱いが決まっているかを確認します。Teams上で主催者になるアカウントは、実際の議長とは別です。取得する担当者が迷わないように決めておきます。
+開始後は、自分以外の声も文字になっているかを見ます。カメラをオフにすることと音声のみの記録を選ぶことは別の設定です。画面に音声のみの選択肢があれば、その扱いも確認します。
+会議が終わったら記録と文字起こしを停止し、会議を終了します。保存処理後、必要な記録を取得できるところまで見ます。会議後の雑談まで録り続けないようにします。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 23: 補足｜使えないときは、条件を確認 -->
+<div class="slide-body">
+<p class="eyebrow">補足　23 / 24</p>
+<h2>補足｜使えないときは、条件を確認</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>記録できない</h3>
+<p>利用権・管理者設定<br>会議の設定を確認</p>
+</div>
+<div class="definition-card">
+<h3>声が入らない</h3>
+<p>音声の分離・マイク<br>配置と収音を確認</p>
+</div>
+<div class="definition-card">
+<h3>案が使いにくい</h3>
+<p>原文・材料・様式<br>修正の負担を確認</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>条件が整うまでは、従来の作成方法を維持する。</strong></p>
+</div>
+<p class="source-note">出典：提案書 §7.3・9.3・付録C／公式資料 S4・S5</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_23.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+記録できない場合、接続人数だけを原因と決めず、利用権と管理者設定、会議の設定を確認します。公開資料では、会議のコパイロット許可設定をオフにすると記録と文字起こしも無効になるとされています。追加ライセンスの要否と、設定の連動は別の問題です。
+学内の方針による制限を勝手に解除して進めません。収音の問題なら、音声の分離やマイクの位置を確認します。会議録案の問題なら、材料と指示、確認手順を見直します。
+条件が整わない場合は従来の方法を維持します。提案書には二台目を無音で接続する予備案もありますが、本学で未検証であり、設定や利用権の制限を回避する方法ではありません。
+</aside>
+            </section>
+
+
+
+
+
+        <section >
+
+            <!-- 24: 補足｜根拠と詳しい手順 -->
+<div class="slide-body">
+<p class="eyebrow">補足　24 / 24</p>
+<h2>補足｜根拠と詳しい手順</h2>
+<div class="cards three">
+<div class="definition-card">
+<h3>提案書</h3>
+<p>運用案と開始条件<br>付録に依頼文・確認表</p>
+</div>
+<div class="definition-card">
+<h3>架空教材</h3>
+<p>会議の材料と依頼文<br>実演・比較用の短い例</p>
+</div>
+<div class="definition-card">
+<h3>公式資料</h3>
+<p>製品の利用条件<br>記録・保護・設定</p>
+</div>
+</div>
+<div class="callout primary-message">
+<p><strong>短い表示の補足は、発表者ノートと参考資料へ。</strong></p>
+</div>
+<p class="scope-note">提案書：2026年9月18日 第1.0版／公式資料の確認日：2026年9月18日</p>
+<p class="source-note">出典：主資料・本制作の教材・参考資料</p>
+</div>
+<p><audio controls preload="none" src="./voiceovers/slide_24.mp3" type="audio/mpeg"></audio></p>
+<aside class="notes">
+詳しい手順と依頼文は、主資料の提案書にあります。付録には会議当日の確認項目、コパイロットに渡す依頼文、情報担当部署への確認事項がまとめられています。
+今回の架空教材は、その考え方を短い例で確かめるために作成したものです。実会議の記録や、実際に得られたＡＩの応答ではありません。公式資料のリンクと、どこを根拠にしたかは参考資料にまとめています。
+製品の表示や機能は変わるため、本学の実際のアカウントと画面を確認して使ってください。
+</aside>
+            </section>
+
+
+
+    </div>
+
+
+  </div>
+
+  <div class="line top"></div>
+  <div class="line bottom"></div>
+  <div class="line left"></div>
+  <div class="line right"></div>
+
+  <script src="libs/reveal.js/4.3.1/reveal.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/notes/notes.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/markdown/markdown.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/highlight/highlight.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/math/math.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/fullscreen/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/animate/svg.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/Chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/d3.v3.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3.patch.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/queue.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/d3/topojson.v1.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/anything/function-plot.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/customcontrols/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/embed-tweet/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/chart.min.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chart/plugin.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/verticator/verticator.js"></script>
+
+<script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/menu/menu.js"></script>
+<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
+
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
+<!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/RecordRTC.js"></script>-->
+
+
+
+<script>
+  const printPlugins = [
+      RevealNotes,
+      RevealHighlight,
+      RevealMath.MathJax3,
+      RevealAnimate,
+      RevealChalkboard,
+            RevealEmbedTweet,
+            RevealChart,
+        ];
+
+        const plugins =  [...printPlugins,
+        RevealZoom,
+        RevealSearch,
+                RevealMarkdown,
+                RevealMenu,
+                RevealFullscreen,
+                RevealAnything,
+                //RevealAudioSlideshow,
+                //RevealAudioRecorder,
+                RevealCustomControls,
+                // poll
+                // question
+                // seminar
+                Verticator
+                 ]
+
+
+        // Also available as an ES module, see:
+        // https://revealjs.com/initialization/
+        Reveal.initialize({
+            controls: true,
+      controlsTutorial: true,
+      controlsLayout: 'bottom-right',
+      controlsBackArrows: 'faded',
+      progress: true,
+      slideNumber: true,
+      //#showSlideNumber "all" "print" "speaker"
+      hash: true, //# hash: false,
+      //# respondToHashChanges: true,
+      //# history: false,
+      keyboard: true,
+      //#keyboardCondition: null,
+      overview: true,
+      center: false,
+      touch: true,
+      loop: false,
+      rtl: false,
+      //#navigationMode: 'default', linear grid
+      shuffle: false,
+      fragments: true,
+      fragmentInURL: false,
+      embedded: false,
+      help: true,
+      //#pause: true
+      showNotes: false,
+      autoPlayMedia: false, // TODO fix this to a nullable value
+      //#preloadIframes: null. true false
+      //#autoAnimate: true
+      //#autoAnimateMatcher: null,
+      //#autoAnimateEasing: 'ease',
+      //autoAnimateDuration: 1.0,
+      //#autoAnimateUnmatched: true
+      //#autoAnimateStyles: []
+      autoSlide: 0, // TODO fix this to a falseable value
+      autoSlideStoppable: true,
+      autoSlideMethod: '0',
+      defaultTiming: 120,
+      mouseWheel: false,
+      //#previewLinks: false
+      //#postMessage: true, // TODO : this can cause issues with the vscode api ???
+      //#postMessageEvents: false,
+      //#focusBodyOnPageVisibilityChange: true,
+      transition: 'fade',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      //#pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+      //#pdfSeparateFragments: true,
+      //#pdfPageHeightOffset: -1,
+      viewDistance: 3,
+      //#mobileViewDistance: 2,
+      display: 'block',
+      //#hideInactiveCursor: true,
+      //#hideCursorTime: 5000
+
+      // Parallax Background
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+      parallaxBackgroundHorizontal: 0,
+      parallaxBackgroundVertical: 0,
+
+      //Presentation Size
+      width: 1280,
+            height: 720,
+            margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2,
+      disableLayout: false,
+
+      audio: {
+        prefix: 'audio/', // audio files are stored in the "audio" folder
+        suffix: '.ogg', // audio files have the ".ogg" ending
+        textToSpeechURL: null, // the URL to the text to speech converter
+        defaultNotes: false, // use slide notes as default for the text to speech converter
+        defaultText: false, // use slide text as default for the text to speech converter
+        advance: 0, // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance
+        autoplay: false, // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available
+        defaultAudios: true, // try to play audios with names such as audio/1.2.ogg
+        playerOpacity: 0.05, // opacity value of audio player if unfocused
+        playerStyle: 'position: fixed; bottom: 4px; left: 25%; width: 50%; height:75px; z-index: 33;', // style used for container of audio controls
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+      },
+
+      chalkboard: { // font-awesome.min.css must be available
+        //src: "chalkboard/chalkboard.json",
+        storage: "chalkboard-demo",
+      },
+
+            customcontrols: {
+                    controls: [
+                            {
+                          id: 'toggle-overview',
+                          title: 'Toggle overview (O)',
+                          icon: '<i class="fa fa-th"></i>',
+                          action: 'Reveal.toggleOverview();'
+                        }
+                        ,
+      {
+        icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      {
+        icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+
+                ]
+            },
+            chart: {
+                    defaults: {
+                        color: 'lightgray', // color of labels
+                        scale: {
+                            beginAtZero: true,
+                            ticks: { stepSize: 1 },
+                            grid: { color: "lightgray" } , // color of grid lines
+                        },
+                    },
+                    line: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ], "borderDash": [ [5,10], [0,0] ] },
+                    bar: { backgroundColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+                    pie: { backgroundColor: [ ["rgba(0,0,0,.8)" , "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"] ]},
+                    radar: { borderColor: [ "rgba(20,220,220,.8)" , "rgba(220,120,120,.8)", "rgba(20,120,220,.8)" ]},
+            },
+            math: {
+                mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+                config: 'TeX-AMS_HTML-full',
+                // pass other options into `MathJax.Hub.Config()`
+                TeX: { Macros: { RR: "{\\bf R}" } }
+                },
+                anything: [
+                {
+        className: "plot",
+        defaults: {width:500, height: 500, grid:true},
+        initialize: (function(container, options){ options.target = "#"+container.id; functionPlot(options) })
+     },
+     {
+        className: "chart",
+        initialize: (function(container, options){ container.chart = new Chart(container.getContext("2d"), options);  })
+     },
+     {
+        className: "anything",
+        initialize: (function(container, options){ if (options && options.initialize) { options.initialize(container)} })
+     },
+                    ],
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: (window.location.search.match(/print-pdf/gi) ? printPlugins : plugins )
+        });
+
+
+
+        // Change chalkboard theme :
+        function changeTheme(input) {
+            var config = {};
+            config.theme = input.value;
+            Reveal.getPlugin("RevealChalkboard").configure(config);
+            input.blur();
+        }
+
+        // // Handle the message inside the webview
+        // window.addEventListener('message', event => {
+
+        //     const message = event.data; // The JSON data our extension sent
+
+        //     switch (message.command) {
+        //         case 'refactor':
+        //             Reveal.toggleHelp();
+        //     }
+        // });
+
+        if (window.location.search.match(/print-pdf-now/gi)) {
+            setTimeout(() => {
+                window.print();
+              }, 2500);
+
+    }
+</script>
+
+</body>
+
+</html>
